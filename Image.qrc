@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>HDMI.png</file>
+        <file>Off</file>
+        <file>DisplacePort.png</file>
+        <file>RJ-45.png</file>
+        <file>sdi.svg</file>
+        <file>LAN_Port.png</file>
+        <file>On.png</file>
+    </qresource>
+</RCC>
