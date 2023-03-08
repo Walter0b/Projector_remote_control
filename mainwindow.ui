@@ -978,6 +978,9 @@ background-repeat: none;</string>
         <height>26</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(53, 53, 53);</string>
+      </property>
       <property name="text">
        <string>Admin</string>
       </property>
@@ -990,6 +993,9 @@ background-repeat: none;</string>
         <width>87</width>
         <height>26</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(53, 53, 53);</string>
       </property>
       <property name="text">
        <string>Sleep</string>
@@ -1159,7 +1165,7 @@ color: black;</string>
         <string>HDMI</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="P2_DisplayPort_2">
+      <widget class="QPushButton" name="P2_DisplayPort_1">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -1358,7 +1364,7 @@ background-repeat: none;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="P2_DisplayPort_1">
+      <widget class="QPushButton" name="P2_DisplayPort_2">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1616,7 +1622,7 @@ background-repeat: none;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="P2_DisplayPort_label_2">
+      <widget class="QLabel" name="P2_DisplayPort_label_1">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -1714,7 +1720,7 @@ background-repeat: none;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="P2_DisplayPort_label_1">
+      <widget class="QLabel" name="P2_DisplayPort_label_2">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1846,8 +1852,8 @@ background-repeat: none;</string>
         <string/>
        </property>
       </widget>
-      <zorder>P2_DisplayPort_label_2</zorder>
       <zorder>P2_DisplayPort_label_1</zorder>
+      <zorder>P2_DisplayPort_label_2</zorder>
       <zorder>P2_SDI_label_4</zorder>
       <zorder>P2_SDI_label_3</zorder>
       <zorder>P2_HDMI_label_1</zorder>
@@ -1860,14 +1866,14 @@ background-repeat: none;</string>
       <zorder>label_4</zorder>
       <zorder>line_4</zorder>
       <zorder>label_20</zorder>
-      <zorder>P2_DisplayPort_2</zorder>
+      <zorder>P2_DisplayPort_1</zorder>
       <zorder>label_21</zorder>
       <zorder>label_22</zorder>
       <zorder>P2_HDBaseT</zorder>
       <zorder>label_23</zorder>
       <zorder>P2_SDI_1</zorder>
       <zorder>P2_On_Button</zorder>
-      <zorder>P2_DisplayPort_1</zorder>
+      <zorder>P2_DisplayPort_2</zorder>
       <zorder>label_24</zorder>
       <zorder>label_2</zorder>
       <zorder>label_25</zorder>
@@ -1906,6 +1912,9 @@ background-repeat: none;</string>
          <height>26</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(53, 53, 53);</string>
+       </property>
        <property name="text">
         <string>Return</string>
        </property>
@@ -1918,6 +1927,9 @@ background-repeat: none;</string>
          <width>87</width>
          <height>26</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(53, 53, 53);</string>
        </property>
        <property name="text">
         <string>Next</string>
@@ -1977,7 +1989,7 @@ background-color:rgb(28, 26, 26);
      <widget class="QFrame" name="frame_7">
       <property name="geometry">
        <rect>
-        <x>390</x>
+        <x>382</x>
         <y>30</y>
         <width>351</width>
         <height>421</height>
@@ -2218,7 +2230,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_40">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>230</x>
          <y>180</y>
          <width>81</width>
          <height>21</height>
@@ -2330,7 +2342,7 @@ text-align:center;</string>
         <string>SDI</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="P2_Admin_SDI1_1">
+      <widget class="QPushButton" name="P2_Admin_SDI_1">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -2656,7 +2668,7 @@ background-repeat: none;</string>
         <string notr="true">max-height: 50px;
 min-height:61;
 min-width:81;
-background-color:rgb(46, 194, 126);
+background-color:rgb(255, 120, 0);
 border-radius: 8%;
 border: none;
 background-repeat: none;</string>
@@ -2731,7 +2743,7 @@ background-repeat: none;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="P2_Admin_HDMI_label_3">
+      <widget class="QLabel" name="P2_Admin_HDMI_label_2">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -2826,7 +2838,7 @@ background-repeat: none;</string>
       <zorder>P2_Admin_SDI_label_3</zorder>
       <zorder>P2_Admin_HDBaseT_label</zorder>
       <zorder>P2_Admin_HDMI_label_1</zorder>
-      <zorder>P2_Admin_HDMI_label_3</zorder>
+      <zorder>P2_Admin_HDMI_label_2</zorder>
       <zorder>P2_Admin_SDI_label_1</zorder>
       <zorder>line_7</zorder>
       <zorder>P2_Admin_HDMI_Button_1</zorder>
@@ -2838,7 +2850,7 @@ background-repeat: none;</string>
       <zorder>P2_Admin_DisplayPort_1</zorder>
       <zorder>label_40</zorder>
       <zorder>P2_Admin_HDBaseT</zorder>
-      <zorder>P2_Admin_SDI1_1</zorder>
+      <zorder>P2_Admin_SDI_1</zorder>
       <zorder>pushButton_40</zorder>
       <zorder>P2_Admin_DisplayPort_2</zorder>
       <zorder>label_8</zorder>
@@ -2856,7 +2868,7 @@ background-repeat: none;</string>
      <widget class="QFrame" name="frame_6">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>12</x>
         <y>30</y>
         <width>351</width>
         <height>421</height>
@@ -3465,7 +3477,7 @@ text-align:center;</string>
         <string notr="true">max-height: 50px;
 min-height:61;
 min-width:81;
-background-color:rgb(46, 194, 126);
+background-color:rgb(255, 120, 0);
 border-radius: 8%;
 border: none;
 background-repeat: none;</string>
@@ -3744,7 +3756,7 @@ background-repeat: none;</string>
         <x>10</x>
         <y>0</y>
         <width>731</width>
-        <height>501</height>
+        <height>511</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -3761,6 +3773,9 @@ background-repeat: none;</string>
          <width>87</width>
          <height>26</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(53, 53, 53);</string>
        </property>
        <property name="text">
         <string>Done</string>
