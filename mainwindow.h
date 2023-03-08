@@ -5,6 +5,10 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 #include <QMainWindow>
+#include <QGraphicsOpacityEffect>
+#include <QPropertyAnimation>
+#include <QEasingCurve>
+#include "styles.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,33 +37,18 @@ private slots:
 
     void on_pushButton_13_clicked();
 
+    void on_password_lineEdit_cursorPositionChanged();
+
 private:
     Ui::MainWindow *ui;
     QLabel *btn_label = new QLabel("");
     QPushButton *Active_btn;
     QLabel *btn_label2 = new QLabel("");
     QPushButton *Active_btn2;
-    QString Orange = "max-height: 50px;\n"
-            "min-height:61;\n"
-            "min-width:81;\n"
-            "background-color: rgb(255, 120, 0);\n"
-            "border-radius: 8%;\n"
-            "border: none;\n"
-            "background-repeat: none;\n";
-    QString Green ="max-height: 50px;\n"
-                   "min-height:61;\n"
-                   "min-width:81;\n"
-                   "background-color: rgb(46, 194, 126);\n"
-                   "border-radius: 8%;\n"
-                   "border: none;\n";
-    QString Gray ="max-height: 50px;\n"
-                   "min-height:61;\n"
-                   "min-width:81;\n"
-                   "background-color: gray;\n"
-                   "border-radius: 8%;\n"
-                   "border: none;\n";
-    int password = 50000;
-//    QPushButton *Disable_btn;
+    QString active_commandData;
+    int password = 500000;
+    Styles* custom_style = new Styles;
+    //QPushButton *Disable_btn;
     void changeColorInActive(QPushButton*, QLabel*, int);
         void changeColorInActive2(QPushButton*, QLabel*);
      void BtnControl(QPushButton*, QLabel*, QLabel*);
@@ -74,5 +63,7 @@ private:
     };
     //Button click command
     void command(int);
+    void animationStackedWidgets();
+    void whenAnimationFinish();
 };
 #endif // MAINWINDOW_H

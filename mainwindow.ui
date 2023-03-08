@@ -33,7 +33,7 @@
      <string notr="true">background: #101010;</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
@@ -982,7 +982,10 @@ background-repeat: none;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(53, 53, 53);</string>
+       <string notr="true">background-color: rgb(53, 53, 53);
+border: none;
+border-radius: 3px;
+color: #fff;</string>
       </property>
       <property name="text">
        <string>Admin</string>
@@ -998,7 +1001,10 @@ background-repeat: none;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(53, 53, 53);</string>
+       <string notr="true">background-color: rgb(53, 53, 53);
+border: none;
+border-radius: 3px;
+color: #fff;</string>
       </property>
       <property name="text">
        <string>Sleep</string>
@@ -1916,7 +1922,10 @@ background-repeat: none;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(53, 53, 53);</string>
+        <string notr="true">background-color: rgb(53, 53, 53);
+color: #fff;
+border: none;
+border-radius: 3px;</string>
        </property>
        <property name="text">
         <string>Return</string>
@@ -1925,14 +1934,17 @@ background-repeat: none;</string>
       <widget class="QPushButton" name="pushButton_14">
        <property name="geometry">
         <rect>
-         <x>330</x>
-         <y>270</y>
-         <width>87</width>
-         <height>26</height>
+         <x>260</x>
+         <y>260</y>
+         <width>181</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(53, 53, 53);</string>
+        <string notr="true">background-color: rgb(53, 53, 53);
+color: #fff;
+border: none;
+border-radius: 3px;</string>
        </property>
        <property name="text">
         <string>Next</string>
@@ -1941,49 +1953,80 @@ background-repeat: none;</string>
       <widget class="QLineEdit" name="password_lineEdit">
        <property name="geometry">
         <rect>
-         <x>320</x>
-         <y>230</y>
-         <width>113</width>
-         <height>26</height>
+         <x>260</x>
+         <y>186</y>
+         <width>181</width>
+         <height>41</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Poppins</family>
+         <pointsize>-1</pointsize>
+         <bold>false</bold>
+         <underline>false</underline>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="styleSheet">
-        <string notr="true">letter-spacing: 10px;
-margin-right:20px;
-display:fix;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-   font-family: 'Poppins', sans-serif;
-    display: flex;
-    align-items: center;
-    padding: 0 10px ;
-    
-    position: relative;
-    width: 100%;
-
-    border-radius: 6px;
-    position: relative;
-    position: absolute;
-    outline: none;
-    border-radius: 6px;
-
-    transition: all 0.2s linear;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.2s linear;
-    left: 15px;
-    font-size: 16px;
-    font-weight: 400;
+        <string notr="true">letter-spacing: 6px;
+font-family: 'Poppins', sans-serif;
+padding: 0px 10px ;  
+outline: none;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+transition: all 0.5s ease-in-out;
+font-size: 13px;
+font-weight: 200;
 background-color:rgb(28, 26, 26);
-    font-size: 20px;</string>
+text-align: center;
+color: #fff;
+border-bottom: 2px solid gray;</string>
        </property>
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>6</number>
+       </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>Password</string>
+       </property>
+       <property name="cursorMoveStyle">
+        <enum>Qt::LogicalMoveStyle</enum>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="incorrect_password">
+       <property name="geometry">
+        <rect>
+         <x>287</x>
+         <y>232</y>
+         <width>131</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #FE4D4D;
+
+</string>
+       </property>
+       <property name="text">
+        <string>Incorrect password</string>
        </property>
       </widget>
      </widget>
