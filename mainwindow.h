@@ -3,6 +3,7 @@
 
 #include "qpushbutton.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -38,10 +39,30 @@ private:
     QPushButton *Active_btn;
     QLabel *btn_label2 = new QLabel("");
     QPushButton *Active_btn2;
+    QString Orange = "max-height: 50px;\n"
+            "min-height:61;\n"
+            "min-width:81;\n"
+            "background-color: rgb(255, 120, 0);\n"
+            "border-radius: 8%;\n"
+            "border: none;\n"
+            "background-repeat: none;\n";
+    QString Green ="max-height: 50px;\n"
+                   "min-height:61;\n"
+                   "min-width:81;\n"
+                   "background-color: rgb(46, 194, 126);\n"
+                   "border-radius: 8%;\n"
+                   "border: none;\n";
+    QString Gray ="max-height: 50px;\n"
+                   "min-height:61;\n"
+                   "min-width:81;\n"
+                   "background-color: gray;\n"
+                   "border-radius: 8%;\n"
+                   "border: none;\n";
+    int password = 50000;
 //    QPushButton *Disable_btn;
-    void changeColorInActive(QPushButton *btn, QLabel *lab,QString pNum);
-        void changeColorInActive2(QPushButton *btn2, QLabel *lab2);
-     void BtnControl(QPushButton *admin_btn, QLabel *lab, QLabel *selfLab);
+    void changeColorInActive(QPushButton*, QLabel*, int);
+        void changeColorInActive2(QPushButton*, QLabel*);
+     void BtnControl(QPushButton*, QLabel*, QLabel*);
     QVector<QPushButton*> ::Iterator viterator;
     QVector <QPushButton*> AllBtn= {
         ui->P1_HDMI_Button_1,
@@ -51,7 +72,7 @@ private:
         ui->P1_SDI_3,
         ui->P1_SDI_4
     };
-
-
+    //Button click command
+    void command(int);
 };
 #endif // MAINWINDOW_H
