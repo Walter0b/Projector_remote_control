@@ -4,14 +4,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(0);
-    QPushButton *addButton = new QPushButton(QIcon(":/HDMI.png"),"");
-    QString buttonStyle = "QPushButton{border:none;background-color:rgba(255, 255, 255,100);}";
-    addButton->setStyleSheet(buttonStyle); // Style sheet
-    addButton->setIconSize(QSize(50,50));
-    addButton->setMinimumSize(50,50);
-    addButton->setMaximumSize(50,50);
+    this->ui->setupUi(this);
+    this->ui->stackedWidget->setCurrentIndex(0);
+    this->ui->incorrect_password->setText("");
 
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
@@ -72,29 +67,30 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete Active_btn;
-    delete btn_label;
-    delete Active_btn2;
-    delete btn_label2;
-//    delete Disable_btn;
-    delete ui;
+    delete this->Active_btn;
+    delete this->btn_label;
+    delete this->Active_btn2;
+    delete this->btn_label2;
+    delete this->ui;
+    delete this->custom_style;
+    //delete Disable_btn;
 }
 
 
 void MainWindow::changeColorInActive(QPushButton *_btn, QLabel *lab, int btn_num){
     if (btn_num < 10){
         if (Active_btn->isEnabled())
-            btn_label -> setStyleSheet(this->Orange);
+            btn_label -> setStyleSheet(this->custom_style->Orange);
         btn_label = lab;
-        btn_label -> setStyleSheet(Green);
+        btn_label -> setStyleSheet(this->custom_style->Green);
         Active_btn = _btn;
     }
     else
     {
         if (Active_btn2->isEnabled())
-            btn_label2 -> setStyleSheet(this->Orange);
+            btn_label2 -> setStyleSheet(this->custom_style->Orange);
         btn_label2 = lab;
-        btn_label2 -> setStyleSheet(this->Green);
+        btn_label2 -> setStyleSheet(this->custom_style->Green);
         Active_btn2 = _btn;
     }
 
@@ -103,30 +99,33 @@ void MainWindow::BtnControl(QPushButton *btn, QLabel *label, QLabel *Selflabel){
       if (btn->isEnabled())
       {
         btn->setEnabled(false);
-        label -> setStyleSheet(this->Gray);
-        Selflabel -> setStyleSheet(this->Gray);
+        label -> setStyleSheet(this->custom_style->Gray);
+        Selflabel -> setStyleSheet(this->custom_style->Gray);
       }else{
         btn->setEnabled(true);
-        label -> setStyleSheet(this->Orange);
-        Selflabel -> setStyleSheet(this->Orange);
+        label -> setStyleSheet(this->custom_style->Orange);
+        Selflabel -> setStyleSheet(this->custom_style->Orange);
       }
 }
 
 
 void MainWindow::on_startButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    this->animationStackedWidgets();
+    this->ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_Admin_button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    this->animationStackedWidgets();
+    this->ui->stackedWidget->setCurrentIndex(2);
 }
 
 
 void MainWindow::on_Sleep_Button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    this->animationStackedWidgets();
+    this->ui->stackedWidget->setCurrentIndex(0);
 }
 
 
@@ -134,83 +133,93 @@ void MainWindow::on_pushButton_14_clicked()
 {
    QString password = ui->password_lineEdit->text();
    if(password.toInt() == this->password){
-        ui->stackedWidget->setCurrentIndex(3);
-        ui->password_lineEdit->setText("");
+        this->animationStackedWidgets();
+        this->ui->stackedWidget->setCurrentIndex(3);
+        this->ui->password_lineEdit->setText("");
    }
-    ui->stackedWidget->setCurrentIndex(3);
+   else
+       this->ui->incorrect_password->setText("Incorrect password!");
 }
 
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    this->animationStackedWidgets();
+    this->ui->stackedWidget->setCurrentIndex(1);
+    this->ui->incorrect_password->setText("");
+    this->ui->password_lineEdit->setText("");
 }
 
 
 void MainWindow::on_pushButton_13_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    this->ui->incorrect_password->setText("");
+    this->ui->password_lineEdit->setText("");
+    this->animationStackedWidgets();
+    this->ui->stackedWidget->setCurrentIndex(1);
 }
-
+/*method to send projector command for a clicked button*/
 void MainWindow::command(int btn_id)
 {
     switch (btn_id) {
     case 1:
-
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA1 0xA9";
         break;
     case 2:
-
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA2 0xAA";
         break;
     case 3:
-
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xBF 0xC7";
         break;
     case 4:
-
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA6 0xAE";
         break;
-    case 5:
-
+     case 5:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA7 0xAF";
         break;
     case 6:
-
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC4 0xCC";
         break;
     case 7:
-
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC5 0xCD";
         break;
     case 8:
-
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC6 0xCE";
         break;
     case 9:
-
-        break;
-    case 10:
-
-        break;
-    case 11:
-
-        break;
-    case 12:
-
-        break;
-    case 13:
-
-        break;
-    case 14:
-
-        break;
-    case 15:
-
-        break;
-    case 16:
-
-        break;
-    case 17:
-
-        break;
-    case 18:
-
-        break;
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC7 0xCF";
     default:
         break;
     }
+}
+
+
+void MainWindow::on_password_lineEdit_cursorPositionChanged()
+{
+
+   if(this->ui->password_lineEdit->text().size() > 0)
+       this->ui->password_lineEdit->setStyleSheet(this->custom_style->border);
+   else
+       this->ui->password_lineEdit->setStyleSheet(this->custom_style->rm_border);
+   this->ui->incorrect_password->setText("");
+}
+
+void MainWindow::animationStackedWidgets()
+{
+
+    QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
+    ui->stackedWidget->setGraphicsEffect(effect);
+    QPropertyAnimation *anim = new QPropertyAnimation(effect,"opacity");
+    anim->setDuration(350);
+    anim->setStartValue(0);
+    anim->setEndValue(1);
+    anim->setEasingCurve(QEasingCurve::InCurve);
+    anim->start(QPropertyAnimation::DeleteWhenStopped);
+    connect(anim, SIGNAL(finished()), this, SLOT(whenAnimationFinish()));
+}
+
+void MainWindow::whenAnimationFinish()
+{
+    ui->stackedWidget->setGraphicsEffect(0); // remove effect
 }
 
