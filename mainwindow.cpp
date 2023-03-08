@@ -6,12 +6,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
-    QPushButton *addButton = new QPushButton(QIcon(":/HDMI.png"),"");
-    QString buttonStyle = "QPushButton{border:none;background-color:rgba(255, 255, 255,100);}";
-    addButton->setStyleSheet(buttonStyle); // Style sheet
-    addButton->setIconSize(QSize(50,50));
-    addButton->setMinimumSize(50,50);
-    addButton->setMaximumSize(50,50);
 
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
@@ -115,18 +109,18 @@ void MainWindow::BtnControl(QPushButton *btn, QLabel *label, QLabel *Selflabel){
 
 void MainWindow::on_startButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    this->ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_Admin_button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    this->ui->stackedWidget->setCurrentIndex(2);
 }
 
 
 void MainWindow::on_Sleep_Button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    this->ui->stackedWidget->setCurrentIndex(0);
 }
 
 
@@ -134,24 +128,24 @@ void MainWindow::on_pushButton_14_clicked()
 {
    QString password = ui->password_lineEdit->text();
    if(password.toInt() == this->password){
-        ui->stackedWidget->setCurrentIndex(3);
-        ui->password_lineEdit->setText("");
+        this->ui->stackedWidget->setCurrentIndex(3);
+        this->ui->password_lineEdit->setText("");
    }
-    ui->stackedWidget->setCurrentIndex(3);
+    this->ui->stackedWidget->setCurrentIndex(3);
 }
 
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    this->ui->stackedWidget->setCurrentIndex(1);
 }
 
 
 void MainWindow::on_pushButton_13_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    this->ui->stackedWidget->setCurrentIndex(1);
 }
-
+/*method to send projector command for a clicked button*/
 void MainWindow::command(int btn_id)
 {
     switch (btn_id) {
