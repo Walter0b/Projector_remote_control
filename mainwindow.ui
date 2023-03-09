@@ -57,23 +57,21 @@
       <widget class="QPushButton" name="startButton">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>140</y>
-         <width>211</width>
-         <height>211</height>
+         <x>270</x>
+         <y>150</y>
+         <width>191</width>
+         <height>191</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: black; 
-border-style: solid; 
-border-color: black;
-border-width:1px;
-border-radius:105px;
-background-repeat: none;  
-background-image: url(:Off);
+        <string notr="true">background-color: transparent; 
+border: 1px solid black; 
+border-radius: 50%;
+border-image: url(:power-btn.png);
 background-repeat: no-repeat;
-background-attachment: fixed;
 background-position: center;
+cursor: pointer;
+
 
 </string>
        </property>
@@ -111,8 +109,8 @@ background-position: center;
       <widget class="Line" name="line">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>120</y>
+         <x>19</x>
+         <y>105</y>
          <width>311</width>
          <height>16</height>
         </rect>
@@ -124,10 +122,8 @@ background-position: center;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
-selection-color: rgb(255, 255, 255);
-</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -136,7 +132,7 @@ selection-color: rgb(255, 255, 255);
       <widget class="QPushButton" name="P1_HDMI_Button_1">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -166,8 +162,8 @@ background-repeat: none;
       <widget class="QScrollBar" name="horizontalScrollBar">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>370</y>
+         <x>155</x>
+         <y>384</y>
          <width>160</width>
          <height>16</height>
         </rect>
@@ -179,8 +175,9 @@ background-repeat: none;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: red;
-background-color:rgb(61, 56, 70);</string>
+        <string notr="true">color: white;
+background-color:rgba(53, 53, 53, 0.8);
+</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -189,8 +186,8 @@ background-color:rgb(61, 56, 70);</string>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>360</y>
+         <x>37</x>
+         <y>376</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -201,6 +198,9 @@ background-color:rgb(61, 56, 70);</string>
          <height>0</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:#fff;</string>
+       </property>
        <property name="text">
         <string>Brightness:</string>
        </property>
@@ -208,7 +208,7 @@ background-color:rgb(61, 56, 70);</string>
       <widget class="Line" name="line_3">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>19</x>
          <y>350</y>
          <width>311</width>
          <height>16</height>
@@ -221,7 +221,8 @@ background-color:rgb(61, 56, 70);</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -230,7 +231,7 @@ background-color:rgb(61, 56, 70);</string>
       <widget class="QLabel" name="label_11">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>55</x>
          <y>180</y>
          <width>41</width>
          <height>21</height>
@@ -254,7 +255,7 @@ color: black;</string>
       <widget class="QPushButton" name="P1_DisplayPort_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -281,7 +282,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_13">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>180</y>
          <width>81</width>
          <height>21</height>
@@ -305,7 +306,7 @@ color: black;</string>
       <widget class="QLabel" name="label_15">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>250</y>
          <width>81</width>
          <height>21</height>
@@ -332,7 +333,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_HDBaseT">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -368,7 +369,7 @@ border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>255</x>
          <y>250</y>
          <width>41</width>
          <height>21</height>
@@ -395,7 +396,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_SDI_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -423,8 +424,8 @@ border-size :cover;</string>
       <widget class="QPushButton" name="P1_On_Button">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>50</y>
+         <x>37</x>
+         <y>30</y>
          <width>70</width>
          <height>70</height>
         </rect>
@@ -453,7 +454,7 @@ background-repeat: none;</string>
       <widget class="QPushButton" name="P1_DisplayPort_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -478,7 +479,7 @@ image: url(:DisplacePort.png) ;
       <widget class="QLabel" name="label_14">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>250</y>
          <width>81</width>
          <height>21</height>
@@ -513,9 +514,9 @@ text-align:center;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-weight: 500px;
-font-family:  ;
-font: 23px ;</string>
+        <string notr="true">font-weight: bold;
+font: 23px ;
+color: white;</string>
        </property>
        <property name="text">
         <string>Projecor 1 </string>
@@ -524,7 +525,7 @@ font: 23px ;</string>
       <widget class="QLabel" name="label_17">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>55</x>
          <y>320</y>
          <width>41</width>
          <height>21</height>
@@ -551,7 +552,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_SDI_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -579,7 +580,7 @@ background-color: none;</string>
       <widget class="QPushButton" name="P1_SDI_3">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -607,7 +608,7 @@ background-color: none;</string>
       <widget class="QLabel" name="label_18">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>155</x>
          <y>320</y>
          <width>41</width>
          <height>21</height>
@@ -634,7 +635,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_SDI_4">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -662,7 +663,7 @@ border-size :cover;</string>
       <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>255</x>
          <y>320</y>
          <width>41</width>
          <height>21</height>
@@ -689,7 +690,7 @@ text-align:center;</string>
       <widget class="QLabel" name="P1_HDMI_label_1">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -711,7 +712,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_DisplayPort_label_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -733,7 +734,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_HDMI_label_2">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -755,7 +756,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_12">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>155</x>
          <y>180</y>
          <width>41</width>
          <height>21</height>
@@ -779,7 +780,7 @@ color: black;</string>
       <widget class="QPushButton" name="P1_HDMI_Button_2">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -809,7 +810,7 @@ background-repeat: none;
       <widget class="QLabel" name="P1_DisplayPort_label_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -831,7 +832,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_SDI_label_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -853,7 +854,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_SDI_label_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -875,7 +876,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_SDI_label_3">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -897,7 +898,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_SDI_label_4">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -919,7 +920,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_HDBaseT_label">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -1038,7 +1039,7 @@ color: #fff;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>120</y>
+         <y>106</y>
          <width>311</width>
          <height>16</height>
         </rect>
@@ -1050,7 +1051,8 @@ color: #fff;</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -1059,7 +1061,7 @@ color: #fff;</string>
       <widget class="QPushButton" name="P2_HDMI_Button_1">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -1089,8 +1091,8 @@ background-repeat: none;
       <widget class="QScrollBar" name="horizontalScrollBar_2">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>370</y>
+         <x>155</x>
+         <y>385</y>
          <width>160</width>
          <height>16</height>
         </rect>
@@ -1102,8 +1104,8 @@ background-repeat: none;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: red;
-background-color:rgb(61, 56, 70);</string>
+        <string notr="true">color: white;
+background-color:rgba(53, 53, 53, 0.8);</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -1112,8 +1114,8 @@ background-color:rgb(61, 56, 70);</string>
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>360</y>
+         <x>37</x>
+         <y>377</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -1124,6 +1126,9 @@ background-color:rgb(61, 56, 70);</string>
          <height>0</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:#fff;</string>
+       </property>
        <property name="text">
         <string>Brightness:</string>
        </property>
@@ -1131,7 +1136,7 @@ background-color:rgb(61, 56, 70);</string>
       <widget class="Line" name="line_4">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>20</x>
          <y>350</y>
          <width>311</width>
          <height>16</height>
@@ -1144,7 +1149,8 @@ background-color:rgb(61, 56, 70);</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -1153,7 +1159,7 @@ background-color:rgb(61, 56, 70);</string>
       <widget class="QLabel" name="label_20">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>55</x>
          <y>180</y>
          <width>41</width>
          <height>21</height>
@@ -1177,7 +1183,7 @@ color: black;</string>
       <widget class="QPushButton" name="P2_DisplayPort_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -1204,7 +1210,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_21">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>180</y>
          <width>81</width>
          <height>21</height>
@@ -1228,7 +1234,7 @@ color: black;</string>
       <widget class="QLabel" name="label_22">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>250</y>
          <width>81</width>
          <height>21</height>
@@ -1255,7 +1261,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P2_HDBaseT">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -1291,7 +1297,7 @@ border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
       <widget class="QLabel" name="label_23">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>255</x>
          <y>250</y>
          <width>41</width>
          <height>21</height>
@@ -1318,7 +1324,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P2_SDI_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -1346,8 +1352,8 @@ border-size :cover;</string>
       <widget class="QPushButton" name="P2_On_Button">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>50</y>
+         <x>35</x>
+         <y>32</y>
          <width>70</width>
          <height>70</height>
         </rect>
@@ -1376,7 +1382,7 @@ background-repeat: none;</string>
       <widget class="QPushButton" name="P2_DisplayPort_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -1401,7 +1407,7 @@ image: url(:DisplacePort.png) ;
       <widget class="QLabel" name="label_24">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>250</y>
          <width>81</width>
          <height>21</height>
@@ -1429,16 +1435,16 @@ text-align:center;</string>
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>221</x>
          <y>10</y>
          <width>111</width>
          <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-weight: 500px;
-font-family:  ;
-font: 23px ;</string>
+        <string notr="true">font-weight: bold;
+font: 23px ;
+color: white;</string>
        </property>
        <property name="text">
         <string>Projecor 2</string>
@@ -1447,7 +1453,7 @@ font: 23px ;</string>
       <widget class="QLabel" name="label_25">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>55</x>
          <y>320</y>
          <width>41</width>
          <height>21</height>
@@ -1474,7 +1480,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P2_SDI_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -1502,7 +1508,7 @@ background-color: none;</string>
       <widget class="QPushButton" name="P2_SDI_3">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -1530,7 +1536,7 @@ background-color: none;</string>
       <widget class="QLabel" name="label_26">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>155</x>
          <y>320</y>
          <width>41</width>
          <height>21</height>
@@ -1557,7 +1563,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P2_SDI_4">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -1585,7 +1591,7 @@ border-size :cover;</string>
       <widget class="QLabel" name="label_27">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>255</x>
          <y>320</y>
          <width>41</width>
          <height>21</height>
@@ -1612,7 +1618,7 @@ text-align:center;</string>
       <widget class="QLabel" name="P2_HDMI_label_1">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -1634,7 +1640,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_DisplayPort_label_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -1656,7 +1662,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_HDMI_label_2">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -1678,7 +1684,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_28">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>155</x>
          <y>180</y>
          <width>41</width>
          <height>21</height>
@@ -1702,7 +1708,7 @@ color: black;</string>
       <widget class="QPushButton" name="P2_HDMI_Button_2">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>140</y>
          <width>81</width>
          <height>61</height>
@@ -1732,7 +1738,7 @@ background-repeat: none;
       <widget class="QLabel" name="P2_DisplayPort_label_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -1754,7 +1760,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_SDI_label_1">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -1776,7 +1782,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_SDI_label_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -1798,7 +1804,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_SDI_label_3">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -1820,7 +1826,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_SDI_label_4">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>235</x>
          <y>280</y>
          <width>81</width>
          <height>61</height>
@@ -1842,7 +1848,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_HDBaseT_label">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>135</x>
          <y>210</y>
          <width>81</width>
          <height>61</height>
@@ -1900,11 +1906,15 @@ background-repeat: none;</string>
      <widget class="QFrame" name="frame_3">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>0</y>
+        <x>9</x>
+        <y>1</y>
         <width>731</width>
         <height>511</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 3px;
+background: rgba(53,53,53, 0.1)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -1928,34 +1938,15 @@ border: none;
 border-radius: 3px;</string>
        </property>
        <property name="text">
-        <string>Return</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_14">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>260</y>
-         <width>181</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(53, 53, 53);
-color: #fff;
-border: none;
-border-radius: 3px;</string>
-       </property>
-       <property name="text">
-        <string>Next</string>
+        <string>Back</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="password_lineEdit">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>186</y>
-         <width>181</width>
+         <x>263</x>
+         <y>204</y>
+         <width>201</width>
          <height>41</height>
         </rect>
        </property>
@@ -2005,11 +1996,30 @@ border-bottom: 2px solid gray;</string>
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_14">
+       <property name="geometry">
+        <rect>
+         <x>263</x>
+         <y>274</y>
+         <width>201</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(53, 53, 53);
+color: #fff;
+border: none;
+border-radius: 3px;</string>
+       </property>
+       <property name="text">
+        <string>Next</string>
+       </property>
+      </widget>
       <widget class="QLabel" name="incorrect_password">
        <property name="geometry">
         <rect>
-         <x>287</x>
-         <y>232</y>
+         <x>302</x>
+         <y>324</y>
          <width>131</width>
          <height>20</height>
         </rect>
@@ -2022,7 +2032,7 @@ border-bottom: 2px solid gray;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">color: #FE4D4D;
-
+background-color: transparent;
 </string>
        </property>
        <property name="text">
@@ -2060,7 +2070,7 @@ border-bottom: 2px solid gray;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>60</y>
+         <y>40</y>
          <width>311</width>
          <height>16</height>
         </rect>
@@ -2072,7 +2082,8 @@ border-bottom: 2px solid gray;</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2081,7 +2092,7 @@ border-bottom: 2px solid gray;</string>
       <widget class="QPushButton" name="P2_Admin_HDMI_Button_1">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>36</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -2123,7 +2134,8 @@ background-repeat: none;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2132,7 +2144,7 @@ background-repeat: none;
       <widget class="QLabel" name="label_38">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>56</x>
          <y>160</y>
          <width>41</width>
          <height>21</height>
@@ -2156,7 +2168,7 @@ color: black;</string>
       <widget class="QPushButton" name="P2_Admin_HDMI_Button_2">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>136</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -2183,7 +2195,7 @@ background-repeat: none;
       <widget class="QLabel" name="label_39">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>156</x>
          <y>160</y>
          <width>41</width>
          <height>21</height>
@@ -2207,7 +2219,7 @@ color: black;</string>
       <widget class="QPushButton" name="P2_Admin_DisplayPort_1">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>236</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -2234,7 +2246,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_40">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>246</x>
          <y>160</y>
          <width>81</width>
          <height>21</height>
@@ -2258,7 +2270,7 @@ color: black;</string>
       <widget class="QLabel" name="label_41">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>146</x>
          <y>230</y>
          <width>61</width>
          <height>21</height>
@@ -2286,7 +2298,7 @@ text-align:center;
       <widget class="QPushButton" name="P2_Admin_HDBaseT">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>136</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -2323,7 +2335,7 @@ border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
       <widget class="QLabel" name="label_42">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>256</x>
          <y>230</y>
          <width>41</width>
          <height>21</height>
@@ -2350,7 +2362,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P2_Admin_SDI_1">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>236</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -2377,7 +2389,7 @@ border-size :cover;</string>
       <widget class="QPushButton" name="P2_Admin_DisplayPort_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>36</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -2402,7 +2414,7 @@ image: url(:DisplacePort.png) ;
       <widget class="QLabel" name="label_43">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>36</x>
          <y>230</y>
          <width>81</width>
          <height>21</height>
@@ -2437,9 +2449,9 @@ text-align:center;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-weight: 500px;
-font-family:  ;
-font: 23px ;</string>
+        <string notr="true">font-weight: bold;
+font: 23px ;
+color: white;</string>
        </property>
        <property name="text">
         <string>Projecor 2</string>
@@ -2448,7 +2460,7 @@ font: 23px ;</string>
       <widget class="QLabel" name="label_44">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>56</x>
          <y>300</y>
          <width>41</width>
          <height>21</height>
@@ -2475,7 +2487,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P2_Admin_SDI_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>36</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -2502,7 +2514,7 @@ border-size :cover;</string>
       <widget class="QPushButton" name="P2_Admin_SDI_3">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>133</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -2530,7 +2542,7 @@ border-size :cover;</string>
       <widget class="QLabel" name="label_45">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>156</x>
          <y>300</y>
          <width>41</width>
          <height>21</height>
@@ -2557,7 +2569,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P2_Admin_SDI_4">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>236</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -2584,7 +2596,7 @@ border-size :cover;</string>
       <widget class="QLabel" name="label_46">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>256</x>
          <y>300</y>
          <width>41</width>
          <height>21</height>
@@ -2611,7 +2623,7 @@ text-align:center;</string>
       <widget class="QLabel" name="P2_Admin_SDI_label_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>36</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -2633,7 +2645,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_HDMI_label_1">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>36</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -2655,7 +2667,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_HDBaseT_label">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>136</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -2677,7 +2689,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_DisplayPort_label_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>36</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -2699,7 +2711,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_SDI_label_1">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>236</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -2721,7 +2733,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_HDMI_label_2">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>136</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -2743,7 +2755,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_DisplayPort_label_1">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>236</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -2765,7 +2777,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_SDI_label_4">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>236</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -2787,7 +2799,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P2_Admin_SDI_label_3">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>136</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -2814,6 +2826,9 @@ background-repeat: none;</string>
          <width>49</width>
          <height>16</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: white;</string>
        </property>
        <property name="text">
         <string>Admin</string>
@@ -2879,7 +2894,7 @@ background-repeat: none;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>60</y>
+         <y>38</y>
          <width>311</width>
          <height>16</height>
         </rect>
@@ -2891,7 +2906,8 @@ background-repeat: none;</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2900,7 +2916,7 @@ background-repeat: none;</string>
       <widget class="QPushButton" name="P1_Admin_HDMI_Button_1">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>34</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -2930,7 +2946,7 @@ background-repeat: none;
       <widget class="Line" name="line_6">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>16</x>
          <y>350</y>
          <width>311</width>
          <height>16</height>
@@ -2943,7 +2959,8 @@ background-repeat: none;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;</string>
+        <string notr="true">border: none;
+border-bottom: 2px solid orange;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2952,7 +2969,7 @@ background-repeat: none;
       <widget class="QLabel" name="P1_Admin_HDMI_Text_1">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>54</x>
          <y>160</y>
          <width>41</width>
          <height>21</height>
@@ -2976,7 +2993,7 @@ color: black;</string>
       <widget class="QPushButton" name="P1_Admin_DisplayPort_1">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>234</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -3003,7 +3020,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_30">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>244</x>
          <y>160</y>
          <width>71</width>
          <height>21</height>
@@ -3027,7 +3044,7 @@ color: black;</string>
       <widget class="QLabel" name="label_31">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>144</x>
          <y>230</y>
          <width>61</width>
          <height>21</height>
@@ -3054,7 +3071,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_Admin_HDBaseT">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>134</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -3090,7 +3107,7 @@ border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
       <widget class="QLabel" name="label_32">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>254</x>
          <y>230</y>
          <width>41</width>
          <height>21</height>
@@ -3117,7 +3134,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_Admin_SDI_1">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>234</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -3145,7 +3162,7 @@ border-size :cover;</string>
       <widget class="QPushButton" name="P1_Admin_DisplayPort_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>34</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -3170,7 +3187,7 @@ image: url(:DisplacePort.png) ;
       <widget class="QLabel" name="label_33">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>34</x>
          <y>230</y>
          <width>81</width>
          <height>21</height>
@@ -3205,9 +3222,9 @@ text-align:center;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-weight: 500px;
-font-family:  ;
-font: 23px ;</string>
+        <string notr="true">font-weight: bold;
+font: 23px ;
+color: white;</string>
        </property>
        <property name="text">
         <string>Projecor 1 </string>
@@ -3216,7 +3233,7 @@ font: 23px ;</string>
       <widget class="QLabel" name="label_34">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>54</x>
          <y>300</y>
          <width>41</width>
          <height>21</height>
@@ -3243,7 +3260,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_Admin_SDI_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>34</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -3271,7 +3288,7 @@ background-color: none;</string>
       <widget class="QPushButton" name="P1_Admin_SDI_3">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>134</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -3299,7 +3316,7 @@ background-color: none;</string>
       <widget class="QLabel" name="label_35">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>154</x>
          <y>300</y>
          <width>41</width>
          <height>21</height>
@@ -3326,7 +3343,7 @@ text-align:center;</string>
       <widget class="QPushButton" name="P1_Admin_SDI_4">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>234</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -3354,7 +3371,7 @@ border-size :cover;</string>
       <widget class="QLabel" name="label_36">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>254</x>
          <y>300</y>
          <width>41</width>
          <height>21</height>
@@ -3381,7 +3398,7 @@ text-align:center;</string>
       <widget class="QLabel" name="P1_Admin_HDMI_label_1">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>34</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -3403,7 +3420,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_Admin_DisplayPort_label_1">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>234</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -3425,7 +3442,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_Admin_HDMI_label_2">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>134</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -3447,7 +3464,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_37">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>154</x>
          <y>160</y>
          <width>41</width>
          <height>21</height>
@@ -3471,7 +3488,7 @@ color: black;</string>
       <widget class="QPushButton" name="P1_Admin_HDMI_Button_2">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>134</x>
          <y>120</y>
          <width>81</width>
          <height>61</height>
@@ -3501,7 +3518,7 @@ background-repeat: none;
       <widget class="QLabel" name="P1_Admin_DisplayPort_label_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>34</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -3523,7 +3540,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_Admin_SDI_label_1">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>234</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -3545,7 +3562,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_Admin_SDI_label_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>34</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -3567,7 +3584,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_Admin_SDI_label_3">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>134</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -3589,7 +3606,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_Admin_SDI_label_4">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>234</x>
          <y>260</y>
          <width>81</width>
          <height>61</height>
@@ -3611,7 +3628,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="P1_Admin_HDBaseT_label">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>134</x>
          <y>190</y>
          <width>81</width>
          <height>61</height>
@@ -3634,10 +3651,13 @@ background-repeat: none;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>20</y>
+         <y>18</y>
          <width>49</width>
          <height>16</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: white;</string>
        </property>
        <property name="text">
         <string>Admin</string>
@@ -3694,13 +3714,15 @@ background-repeat: none;</string>
        <property name="geometry">
         <rect>
          <x>320</x>
-         <y>460</y>
+         <y>470</y>
          <width>87</width>
          <height>26</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(53, 53, 53);</string>
+        <string notr="true">background-color: rgb(53, 53, 53);
+border: none;
+border-radius: 3px;</string>
        </property>
        <property name="text">
         <string>Done</string>

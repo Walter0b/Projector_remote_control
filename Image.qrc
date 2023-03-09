@@ -7,5 +7,6 @@
         <file>sdi.svg</file>
         <file>LAN_Port.png</file>
         <file>On.png</file>
+        <file>power-btn.png</file>
     </qresource>
 </RCC>
