@@ -10,8 +10,17 @@
     <height>511</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Projector Remote Controller</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
@@ -28,6 +37,9 @@
       <width>741</width>
       <height>0</height>
      </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">background: #101010;</string>
@@ -63,6 +75,9 @@
          <height>191</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: transparent; 
 border: 1px solid black; 
@@ -70,7 +85,7 @@ border-radius: 50%;
 border-image: url(:power-btn.png);
 background-repeat: no-repeat;
 background-position: center;
-cursor: pointer;
+
 
 
 </string>
@@ -123,7 +138,7 @@ cursor: pointer;
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -143,6 +158,9 @@ border-bottom: 2px solid orange;</string>
          <width>81</width>
          <height>61</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -222,7 +240,7 @@ background-color:rgba(53, 53, 53, 0.8);
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -266,6 +284,9 @@ color: black;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -345,6 +366,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">height:80px;
 max-width: 100px;
@@ -408,6 +432,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 background-color: none;
@@ -435,6 +462,9 @@ border-size :cover;</string>
          <width>70</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">border-image: url(:/On.png);
@@ -465,6 +495,9 @@ background-repeat: none;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -564,6 +597,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 border-radius: 8%;
@@ -591,6 +627,9 @@ background-color: none;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -646,6 +685,9 @@ text-align:center;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -791,6 +833,9 @@ color: black;</string>
          <width>81</width>
          <height>61</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -976,11 +1021,14 @@ background-repeat: none;</string>
      <widget class="QPushButton" name="Admin_button">
       <property name="geometry">
        <rect>
-        <x>530</x>
+        <x>543</x>
         <y>10</y>
         <width>87</width>
-        <height>26</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(53, 53, 53);
@@ -995,11 +1043,14 @@ color: #fff;</string>
      <widget class="QPushButton" name="Sleep_Button">
       <property name="geometry">
        <rect>
-        <x>630</x>
+        <x>643</x>
         <y>10</y>
         <width>87</width>
-        <height>26</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(53, 53, 53);
@@ -1052,7 +1103,7 @@ color: #fff;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -1072,6 +1123,9 @@ border-bottom: 2px solid orange;</string>
          <width>81</width>
          <height>61</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -1150,7 +1204,7 @@ background-color:rgba(53, 53, 53, 0.8);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -1194,6 +1248,9 @@ color: black;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -1273,6 +1330,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">height:80px;
 max-width: 100px;
@@ -1336,6 +1396,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 background-color: none;
@@ -1363,6 +1426,9 @@ border-size :cover;</string>
          <width>70</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">border-image: url(:/On.png);
@@ -1393,6 +1459,9 @@ background-repeat: none;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -1492,6 +1561,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 border-radius: 8%;
@@ -1519,6 +1591,9 @@ background-color: none;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -1574,6 +1649,9 @@ text-align:center;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -1719,6 +1797,9 @@ color: black;</string>
          <width>81</width>
          <height>61</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -1925,11 +2006,14 @@ background: rgba(53,53,53, 0.1)</string>
       <widget class="QPushButton" name="pushButton_13">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>10</y>
+         <x>11</x>
+         <y>8</y>
          <width>87</width>
-         <height>26</height>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(53, 53, 53);
@@ -1969,6 +2053,8 @@ padding: 0px 10px ;
 outline: none;
 border-top-left-radius: 3px;
 border-top-right-radius: 3px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
 transition: all 0.5s ease-in-out;
 font-size: 13px;
 font-weight: 200;
@@ -2002,8 +2088,11 @@ border-bottom: 2px solid gray;</string>
          <x>263</x>
          <y>274</y>
          <width>201</width>
-         <height>31</height>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(53, 53, 53);
@@ -2019,7 +2108,7 @@ border-radius: 3px;</string>
        <property name="geometry">
         <rect>
          <x>302</x>
-         <y>324</y>
+         <y>333</y>
          <width>131</width>
          <height>20</height>
         </rect>
@@ -2029,6 +2118,9 @@ border-radius: 3px;</string>
          <family>Calibri</family>
          <pointsize>12</pointsize>
         </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">color: #FE4D4D;
@@ -2045,7 +2137,7 @@ background-color: transparent;
      <widget class="QFrame" name="frame_7">
       <property name="geometry">
        <rect>
-        <x>382</x>
+        <x>385</x>
         <y>30</y>
         <width>351</width>
         <height>421</height>
@@ -2083,7 +2175,7 @@ background-color: transparent;
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2104,6 +2196,9 @@ border-bottom: 2px solid orange;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 
@@ -2121,7 +2216,7 @@ background-repeat: none;
       <widget class="Line" name="line_8">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>18</x>
          <y>350</y>
          <width>311</width>
          <height>16</height>
@@ -2135,7 +2230,7 @@ background-repeat: none;
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2179,6 +2274,9 @@ color: black;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -2230,6 +2328,9 @@ color: black;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -2310,6 +2411,9 @@ text-align:center;
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">height:80px;
 max-width: 100px;
@@ -2374,6 +2478,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
 border-radius: 8%;
@@ -2400,6 +2507,9 @@ border-size :cover;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -2499,6 +2609,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
 border-radius: 8%;
@@ -2525,6 +2638,9 @@ border-size :cover;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -2580,6 +2696,9 @@ text-align:center;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -2869,7 +2988,7 @@ background-repeat: none;</string>
      <widget class="QFrame" name="frame_6">
       <property name="geometry">
        <rect>
-        <x>12</x>
+        <x>15</x>
         <y>30</y>
         <width>351</width>
         <height>421</height>
@@ -2907,7 +3026,7 @@ background-repeat: none;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2927,6 +3046,9 @@ border-bottom: 2px solid orange;</string>
          <width>81</width>
          <height>61</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -2960,7 +3082,7 @@ background-repeat: none;
        </property>
        <property name="styleSheet">
         <string notr="true">border: none;
-border-bottom: 2px solid orange;</string>
+border-bottom: 2px solid white;</string>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2994,7 +3116,7 @@ color: black;</string>
        <property name="geometry">
         <rect>
          <x>234</x>
-         <y>120</y>
+         <y>130</y>
          <width>81</width>
          <height>61</height>
         </rect>
@@ -3004,6 +3126,9 @@ color: black;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -3083,6 +3208,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">height:80px;
 max-width: 100px;
@@ -3146,6 +3274,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 background-color: none;
@@ -3173,6 +3304,9 @@ border-size :cover;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: none;
@@ -3272,6 +3406,9 @@ text-align:center;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 border-radius: 8%;
@@ -3299,6 +3436,9 @@ background-color: none;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -3354,6 +3494,9 @@ text-align:center;</string>
          <width>81</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -3499,6 +3642,9 @@ color: black;</string>
          <width>81</width>
          <height>61</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -3713,19 +3859,24 @@ background-repeat: none;</string>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>320</x>
-         <y>470</y>
-         <width>87</width>
-         <height>26</height>
+         <x>5</x>
+         <y>460</y>
+         <width>721</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(53, 53, 53);
 border: none;
-border-radius: 3px;</string>
+border-radius: 3px;
+color: #fff;
+font-weight: bold;</string>
        </property>
        <property name="text">
-        <string>Done</string>
+        <string>SAVE CHANGES</string>
        </property>
       </widget>
      </widget>
