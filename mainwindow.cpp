@@ -111,20 +111,17 @@ void MainWindow::BtnControl(QPushButton *btn, QLabel *label, QLabel *Selflabel){
 
 void MainWindow::on_startButton_clicked()
 {
-    this->animationStackedWidgets();
     this->ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_Admin_button_clicked()
 {
-    this->animationStackedWidgets();
     this->ui->stackedWidget->setCurrentIndex(2);
 }
 
 
 void MainWindow::on_Sleep_Button_clicked()
 {
-    this->animationStackedWidgets();
     this->ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -133,7 +130,6 @@ void MainWindow::on_pushButton_14_clicked()
 {
    QString password = ui->password_lineEdit->text();
    if(password.toInt() == this->password){
-        this->animationStackedWidgets();
         this->ui->stackedWidget->setCurrentIndex(3);
         this->ui->password_lineEdit->setText("");
    }
@@ -144,7 +140,6 @@ void MainWindow::on_pushButton_14_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    this->animationStackedWidgets();
     this->ui->stackedWidget->setCurrentIndex(1);
     this->ui->incorrect_password->setText("");
     this->ui->password_lineEdit->setText("");
@@ -155,7 +150,6 @@ void MainWindow::on_pushButton_13_clicked()
 {
     this->ui->incorrect_password->setText("");
     this->ui->password_lineEdit->setText("");
-    this->animationStackedWidgets();
     this->ui->stackedWidget->setCurrentIndex(1);
 }
 /*method to send projector command for a clicked button*/
@@ -204,22 +198,4 @@ void MainWindow::on_password_lineEdit_cursorPositionChanged()
    this->ui->incorrect_password->setText("");
 }
 
-void MainWindow::animationStackedWidgets()
-{
-
-    QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect(this);
-    ui->stackedWidget->setGraphicsEffect(effect);
-    QPropertyAnimation *anim = new QPropertyAnimation(effect,"opacity");
-    anim->setDuration(350);
-    anim->setStartValue(0);
-    anim->setEndValue(1);
-    anim->setEasingCurve(QEasingCurve::InCurve);
-    anim->start(QPropertyAnimation::DeleteWhenStopped);
-    connect(anim, SIGNAL(finished()), this, SLOT(whenAnimationFinish()));
-}
-
-void MainWindow::whenAnimationFinish()
-{
-    ui->stackedWidget->setGraphicsEffect(0); // remove effect
-}
 
