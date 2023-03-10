@@ -9,40 +9,40 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow),
-      tcpSocket_1(new QTcpSocket(this)),
-      tcpSocket_2(new QTcpSocket(this))
+    tcpSocket_1(new QTcpSocket(this)),
+    tcpSocket_2(new QTcpSocket(this))
 {
     this->ui->setupUi(this);
     this->ui->stackedWidget->setCurrentIndex(0);
     this->ui->incorrect_password->setText("");
 
-    ui->lbl_is_connected_1->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    this->ui->lbl_is_connected_1->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     tcpSocket_1->connectToHost(host_1, 7142);
     if(tcpSocket_1->waitForConnected()){
         is_connected_1 = true;
         powerState_1 = true;
-        ui->lbl_is_connected_1->setText("Connected");
-        ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
+        this->ui->lbl_is_connected_1->setText("Connected");
+        this->ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     }else{
         is_connected_1 = false;
         powerState_1 = false;
-        ui->lbl_is_connected_1->setText("Not Connected");
-        ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+        this->ui->lbl_is_connected_1->setText("Not Connected");
+        this->ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
     }
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 
-    ui->lbl_is_connected_2->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    this->ui->lbl_is_connected_2->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     tcpSocket_2->connectToHost(host_2, 7142);
     if(tcpSocket_2->waitForConnected()){
         is_connected_2 = true;
         powerState_2 = true;
-        ui->lbl_is_connected_2->setText("Connected");
-        ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+        this->ui->lbl_is_connected_2->setText("Connected");
+        this->ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     }else{
         is_connected_2 = false;
         powerState_2 = false;
-        ui->lbl_is_connected_2->setText("Not Connected");
-        ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
+        this->ui->lbl_is_connected_2->setText("Not Connected");
+        this->ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
     }
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
 
@@ -77,32 +77,92 @@ MainWindow::MainWindow(QWidget *parent)
                      {this->changeColorInActive(this->ui->P1_SDI_3, this->ui->P1_SDI_label_3, "P1" ); this->command(8,  "P1"); });
     QObject::connect(this->ui->P1_SDI_4, &QPushButton::clicked, this, [=]()
                      {this->changeColorInActive(this->ui->P1_SDI_4, this->ui->P1_SDI_label_4, "P1" ); this->command(9,  "P1"); });
-//add slider
-    Active_btn = ui->P1_HDMI_Button_1;
-    btn_label = ui->P1_HDMI_label_1;
+    //add slider
+    Active_btn = this->ui->P1_HDMI_Button_1;
+    btn_label = this->ui->P1_HDMI_label_1;
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-
-    QObject::connect(this->ui->P2_HDMI_Button_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_HDMI_Button_1, this->ui->P2_HDMI_label_1,  "P2"); this->command(1, "P2"); });
-    QObject::connect(this->ui->P2_HDMI_Button_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_HDMI_Button_2, this->ui->P2_HDMI_label_2, "P2"); this->command(2, "P2"); });
-    QObject::connect(this->ui->P2_HDBaseT, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_HDBaseT, this->ui->P2_HDBaseT_label, "P2"); this->command(3, "P2"); });
-    QObject::connect(this->ui->P2_DisplayPort_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_DisplayPort_1, this->ui->P2_DisplayPort_label_1, "P2"); this->command(4, "P2"); });
-    QObject::connect(this->ui->P2_DisplayPort_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_DisplayPort_2, this->ui->P2_DisplayPort_label_2, "P2"); this->command(5, "P2"); });
-    QObject::connect(this->ui->P2_SDI_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_1, this->ui->P2_SDI_label_1, "P2"); this->command(6, "P2"); });
-    QObject::connect(this->ui->P2_SDI_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_2, this->ui->P2_SDI_label_2, "P2"); this->command(7, "P2"); });
-    QObject::connect(this->ui->P2_SDI_3, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_3, this->ui->P2_SDI_label_3, "P2"); this->command(8, "P2"); });
-    QObject::connect(this->ui->P2_SDI_4, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_4, this->ui->P2_SDI_label_4, "P2"); this->command(9, "P2"); });
-//add slider
-
+    QObject::connect(
+        this->ui->P2_HDMI_Button_1,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_HDMI_Button_1, this->ui->P2_HDMI_label_1,  "P2");
+            this->command(1, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_HDMI_Button_2,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_HDMI_Button_2, this->ui->P2_HDMI_label_2, "P2");
+            this->command(2, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_HDBaseT, &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_HDBaseT, this->ui->P2_HDBaseT_label, "P2");
+            this->command(3, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_DisplayPort_1,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_DisplayPort_1, this->ui->P2_DisplayPort_label_1, "P2");
+            this->command(4, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_DisplayPort_2,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_DisplayPort_2, this->ui->P2_DisplayPort_label_2, "P2");
+            this->command(5, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_SDI_1,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_SDI_1, this->ui->P2_SDI_label_1, "P2");
+            this->command(6, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_SDI_2,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_SDI_2, this->ui->P2_SDI_label_2, "P2");
+            this->command(7, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_SDI_3,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_SDI_3, this->ui->P2_SDI_label_3, "P2");
+            this->command(8, "P2");
+        }
+    );
+    QObject::connect(
+        this->ui->P2_SDI_4,
+        &QPushButton::clicked,
+        this,
+        [=](){
+            this->changeColorInActive(this->ui->P2_SDI_4, this->ui->P2_SDI_label_4, "P2");
+            this->command(9, "P2");
+        }
+    );
+    //add slider
     //++++++++++++++++++++++++++++++++++++++++++++++ADMIN     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
     QObject::connect(this->ui->P1_Admin_HDMI_Button_1, &QPushButton::clicked, this, [=]()
@@ -152,11 +212,10 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     if(tcpSocket_1->isOpen())
-           tcpSocket_1->close();
-       if(tcpSocket_2->isOpen())
-           tcpSocket_2->close();
-
-       connectThread->kill = true;
+       tcpSocket_1->close();
+    if(tcpSocket_2->isOpen())
+       tcpSocket_2->close();
+    connectThread->kill = true;
     delete this->Active_btn;
     delete this->btn_label;
     delete this->Active_btn2;
@@ -188,7 +247,7 @@ void MainWindow::changeColorInActive(QPushButton *_btn, QLabel *lab, QString prt
 void MainWindow::changeBrightness()
 {
     int val = ui->sl_brightness_1->value();
-    ui->lbl_brightness_1_val->setText(QString::number(val));
+    this->ui->lbl_brightness_1_val->setText(QString::number(val));
     if(tcpSocket_1->isOpen())
     {
         QChar fillChar = u'0';
@@ -227,30 +286,30 @@ void MainWindow::onOff_1()
 
 void MainWindow::connected_1()
 {
-    ui->lbl_is_connected_1->setText("Connected");
-    ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
+    this->ui->lbl_is_connected_1->setText("Connected");
+    this->ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     is_connected_1 = true;
 }
 
 void MainWindow::disconnected_1()
 {
-    ui->lbl_is_connected_1->setText("Not Connected");
-    ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+    this->ui->lbl_is_connected_1->setText("Not Connected");
+    this->ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
     is_connected_1 = false;
     connectThread->is_connected_1 = false;
 }
 
 void MainWindow::connected_2()
 {
-    ui->lbl_is_connected_2->setText("Connected");
-    ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+    this->ui->lbl_is_connected_2->setText("Connected");
+    this->ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     is_connected_2 = true;
 }
 
 void MainWindow::disconnected_2()
 {
-    ui->lbl_is_connected_2->setText("Not Connected");
-    ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
+    this->ui->lbl_is_connected_2->setText("Not Connected");
+    this->ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
     is_connected_2 = false;
     connectThread->is_connected_2 = false;
 }
@@ -262,8 +321,8 @@ void MainWindow::onConnexionStatusChanged_1()
     if(tcpSocket_1->waitForConnected()){
         is_connected_1 = true;
         powerState_1 = true;
-ui->lbl_is_connected_1->setText("Connected");
-ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
+        this->ui->lbl_is_connected_1->setText("Connected");
+        this->ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     }
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 }
@@ -275,8 +334,8 @@ void MainWindow::onConnexionStatusChanged_2()
     if(tcpSocket_2->waitForConnected()){
         is_connected_2 = true;
         powerState_2 = true;
-        ui->lbl_is_connected_2->setText("Connected");
-        ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+        this->ui->lbl_is_connected_2->setText("Connected");
+        this->ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     }
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
 }
@@ -317,11 +376,9 @@ void MainWindow::on_Sleep_Button_clicked()
 
 void MainWindow::on_pushButton_14_clicked()
 {
-
     QString password = ui->password_lineEdit->text();
     if (password.toInt() == this->password)
     {
-
         this->ui->stackedWidget->setCurrentIndex(3);
         this->ui->password_lineEdit->setText("");
     }
@@ -331,7 +388,6 @@ void MainWindow::on_pushButton_14_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-
     this->ui->stackedWidget->setCurrentIndex(1);
     this->ui->incorrect_password->setText("");
     this->ui->password_lineEdit->setText("");
@@ -379,18 +435,18 @@ void MainWindow::command(int btn_id, QString prt )
     }
     if (prt == "P1"){
         // On envoie la commande
-                 byteArray = active_commandData.toUtf8();
-                 socketStream_1 << byteArray;
-    }else{
+        byteArray = active_commandData.toUtf8();
+        socketStream_1 << byteArray;
+    }
+    else{
         // On envoie la commande
-                 byteArray = active_commandData.toUtf8();
-                 socketStream_2 << byteArray;
+        byteArray = active_commandData.toUtf8();
+        socketStream_2 << byteArray;
     }
 }
 
 void MainWindow::on_password_lineEdit_cursorPositionChanged()
 {
-
     if (this->ui->password_lineEdit->text().size() > 0)
         this->ui->password_lineEdit->setStyleSheet(this->custom_style->border);
     else

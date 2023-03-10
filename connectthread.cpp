@@ -7,8 +7,15 @@ ConnectThread::ConnectThread(QObject *parent)
 
 }
 
-ConnectThread::ConnectThread(QObject *parent, bool _is_connected_1, bool _is_connected_2, QString _host_1, QString _host_2)
-    : QThread{parent}
+ConnectThread::ConnectThread(
+
+    QObject *parent,
+    bool _is_connected_1,
+    bool _is_connected_2,
+    QString _host_1,
+    QString _host_2
+
+) : QThread{parent}
 {
     this->host_1 = _host_1;
     this->host_2 = _host_2;
@@ -23,7 +30,6 @@ void ConnectThread::run()
     QMutex mutex_1;
     QMutex mutex_2;
     kill = false;
-
     while (!kill) {
         mutex_1.lock();
         if(!is_connected_1){
@@ -48,16 +54,14 @@ void ConnectThread::run()
             }
         }
         mutex_2.unlock();
-
         msleep(100);
     }
 }
-
 ConnectThread::~ConnectThread()
 {
     quit();
-#if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
+    #if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
     requestInterruption();
-#endif
+    #endif
     wait();
 }
