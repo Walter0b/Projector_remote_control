@@ -180,7 +180,7 @@ background-repeat: none;
       <widget class="QScrollBar" name="sl_brightness_1">
        <property name="geometry">
         <rect>
-         <x>138</x>
+         <x>107</x>
          <y>384</y>
          <width>160</width>
          <height>16</height>
@@ -204,7 +204,7 @@ background-color:rgba(53, 53, 53, 0.8);
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>37</x>
+         <x>17</x>
          <y>376</y>
          <width>81</width>
          <height>31</height>
@@ -379,8 +379,8 @@ background-repeat: none;
 border-style: solid; 
 background-repeat: none;  
 border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+background-repeat: no-repeat;
+background-attachment: fixed;
 
 
 
@@ -636,7 +636,7 @@ background-color: none;</string>
 border-radius: 8%;
 border-image: url(:sdi.svg);
 border: none;
-background-possition:center;
+background-position:center;
 border-size :cover;
 background-color: none;</string>
        </property>
@@ -695,8 +695,8 @@ background-color: none;
 border-radius: 8%;
 border-image: url(:sdi.svg);
 border: none;
-background-possition:center;
-border-size :cover;</string>
+background-position:center;
+</string>
        </property>
        <property name="text">
         <string/>
@@ -987,27 +987,31 @@ background-repeat: none;</string>
       <widget class="QLabel" name="lbl_is_connected_1">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>143</x>
          <y>80</y>
-         <width>101</width>
+         <width>121</width>
          <height>18</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(36, 31, 49);</string>
+        <string notr="true">background-color: transparent;
+content: 'Status';</string>
        </property>
        <property name="text">
-        <string/>
+        <string>connection status</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_brightness_1_val">
        <property name="geometry">
         <rect>
-         <x>305</x>
-         <y>380</y>
+         <x>291</x>
+         <y>382</y>
          <width>41</width>
          <height>21</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: white;</string>
        </property>
        <property name="text">
         <string>0</string>
@@ -1176,7 +1180,7 @@ background-repeat: none;
       <widget class="QScrollBar" name="sl_brightness_2">
        <property name="geometry">
         <rect>
-         <x>133</x>
+         <x>106</x>
          <y>385</y>
          <width>160</width>
          <height>16</height>
@@ -1199,7 +1203,7 @@ background-color:rgba(53, 53, 53, 0.8);</string>
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
-         <x>37</x>
+         <x>20</x>
          <y>377</y>
          <width>81</width>
          <height>31</height>
@@ -1982,27 +1986,30 @@ background-repeat: none;</string>
       <widget class="QLabel" name="lbl_is_connected_2">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>147</x>
          <y>80</y>
-         <width>101</width>
+         <width>66</width>
          <height>18</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(36, 31, 49);</string>
+        <string notr="true">background-color: transparent;</string>
        </property>
        <property name="text">
-        <string/>
+        <string>connection status</string>
        </property>
       </widget>
       <widget class="QLabel" name="lbl_brightness_1_val_2">
        <property name="geometry">
         <rect>
-         <x>300</x>
-         <y>380</y>
+         <x>292</x>
+         <y>382</y>
          <width>41</width>
          <height>21</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: white;</string>
        </property>
        <property name="text">
         <string>0</string>
@@ -3178,7 +3185,7 @@ color: black;</string>
        <property name="geometry">
         <rect>
          <x>234</x>
-         <y>130</y>
+         <y>121</y>
          <width>81</width>
          <height>61</height>
         </rect>
