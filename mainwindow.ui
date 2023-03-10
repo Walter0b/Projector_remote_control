@@ -989,7 +989,7 @@ background-repeat: none;</string>
         <rect>
          <x>150</x>
          <y>80</y>
-         <width>66</width>
+         <width>101</width>
          <height>18</height>
         </rect>
        </property>
@@ -1010,7 +1010,7 @@ background-repeat: none;</string>
         </rect>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>0</string>
        </property>
       </widget>
       <zorder>P1_SDI_label_4</zorder>
@@ -1984,7 +1984,7 @@ background-repeat: none;</string>
         <rect>
          <x>160</x>
          <y>80</y>
-         <width>66</width>
+         <width>101</width>
          <height>18</height>
         </rect>
        </property>
@@ -2005,7 +2005,7 @@ background-repeat: none;</string>
         </rect>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>0</string>
        </property>
       </widget>
       <zorder>P2_DisplayPort_label_1</zorder>
