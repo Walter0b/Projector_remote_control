@@ -62,7 +62,7 @@ private:
     QTcpSocket *tcpSocket_1 = nullptr;
     QTcpSocket *tcpSocket_2 = nullptr;
     QDataStream socketStream_1;
-    QDataStream socketStream_2,socketStream;
+    QDataStream socketStream_2;
     bool is_connected_1;
     bool is_connected_2;
     bool powerState_1;
