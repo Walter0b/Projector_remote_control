@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include "connectthread.h"
 #include "qpushbutton.h"
 #include "ui_mainwindow.h"
@@ -10,6 +11,7 @@
 #include <QEasingCurve>
 #include "styles.h"
 #include <QFile>
+#include <QScrollBar>
 #include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
@@ -44,6 +46,10 @@ private slots:
     void on_password_lineEdit_cursorPositionChanged();
 
 
+    void on_P1_On_Button_clicked();
+
+    void on_P2_On_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
     QLabel *btn_label = new QLabel("");
@@ -63,12 +69,11 @@ private:
     bool powerState_2;
     QString host_1;
     QString host_2;
+
     ConnectThread *connectThread = nullptr;
     QByteArray byteArray_1;
     QByteArray byteArray;
-    void onOff_1();
-     void onOff_2();
-
+    void onOff(int );
      void connected_2();
      void disconnected_2();
      void onConnexionStatusChanged_1();
@@ -79,7 +84,7 @@ private:
     //QPushButton *Disable_btn;
     void changeColorInActive(QPushButton*, QLabel*, QString);
         void changeColorInActive2(QPushButton*, QLabel*);
-    void changeBrightness(int);
+    void changeBrightness(QScrollBar *, QLabel *, int);
      void BtnControl(QPushButton*, QLabel*, QLabel*);
     QVector<QPushButton*> ::Iterator viterator;
     QVector <QPushButton*> AllBtn= {

@@ -28,6 +28,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Image.qrc \
+    rs.qrc \
+     utils.txt
 
-DISTFILES +=\
-    utils.txt
+DISTFILES += \
+
