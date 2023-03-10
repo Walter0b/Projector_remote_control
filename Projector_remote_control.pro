@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     connectthread.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp\
+    connectthread.cpp
 
 HEADERS += \
     connectthread.h \
     mainwindow.h \
+    connectthread.h\
     styles.h
 
 FORMS += \
@@ -27,6 +29,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    Image.qrc
+    Image.qrc \
+    rs.qrc \
+     utils.txt
 
-DISTFILES +=
+DISTFILES += \
+
