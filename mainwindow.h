@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <connectthread.h>
 #include "qpushbutton.h"
 #include "ui_mainwindow.h"
 #include <iostream>
@@ -9,6 +9,7 @@
 #include <QPropertyAnimation>
 #include <QEasingCurve>
 #include "styles.h"
+#include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,6 +25,8 @@ public:
     int Buttons = 0;
 
 private slots:
+    void connected_1();
+    void disconnected_1();
 
    void on_startButton_clicked();
 
@@ -45,12 +48,36 @@ private:
     QPushButton *Active_btn;
     QLabel *btn_label2 = new QLabel("");
     QPushButton *Active_btn2;
+
+    //--------------------------Check-----------------//
     QString active_commandData;
+    QTcpSocket *tcpSocket_1 = nullptr;
+    QTcpSocket *tcpSocket_2 = nullptr;
+    QDataStream socketStream_1;
+    QDataStream socketStream_2,socketStream;
+    bool is_connected_1;
+    bool is_connected_2;
+    bool powerState_1;
+    bool powerState_2;
+    QString host_1;
+    QString host_2;
+    ConnectThread *connectThread = nullptr;
+    QByteArray byteArray_1;
+    QByteArray byteArray;
+    void onOff_1();
+     void onOff_2();
+
+     void connected_2();
+     void disconnected_2();
+     void onConnexionStatusChanged_1();
+     void onConnexionStatusChanged_2();
+    //----------------------------------------------//
     int password = 500000;
     Styles* custom_style = new Styles;
     //QPushButton *Disable_btn;
-    void changeColorInActive(QPushButton*, QLabel*, int);
+    void changeColorInActive(QPushButton*, QLabel*, QString);
         void changeColorInActive2(QPushButton*, QLabel*);
+    void changeBrightness();
      void BtnControl(QPushButton*, QLabel*, QLabel*);
     QVector<QPushButton*> ::Iterator viterator;
     QVector <QPushButton*> AllBtn= {
@@ -62,8 +89,6 @@ private:
         ui->P1_SDI_4
     };
     //Button click command
-    void command(int);
-    void animationStackedWidgets();
-    void whenAnimationFinish();
+    void command(int, QString);
 };
 #endif // MAINWINDOW_H
