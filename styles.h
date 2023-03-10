@@ -17,7 +17,6 @@ public:
                         "transition: all 0.3s ease-in-out;"
                         "font-size: 13px;"
                         "font-weight: 200;"
-                        "background-color:rgb(28, 26, 26);"
                         "text-align: center;"
                         "color: #fff;"
                         "border-bottom: 2px solid orange;";
@@ -33,7 +32,6 @@ public:
                         "transition: all 0.3s ease-in-out;"
                         "font-size: 13px;"
                         "font-weight: 200;"
-                        "background-color:rgb(28, 26, 26);"
                         "text-align: center;"
                         "color: #fff;"
                         "border-bottom: 2px solid gray;";
