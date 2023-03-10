@@ -5,7 +5,6 @@
 #include <QShortcut>
 #include <QHBoxLayout>
 #include <QThread>
-#include <QSlider>
 #include <QtConcurrent/QtConcurrentRun>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -19,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     QFile f{":/utils.txt"};
     QString allDataFile = "";
-    passwords = "7777";
     if (f.exists())
     {
         if (f.open(QIODevice::ReadOnly))
@@ -29,9 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
             {
                 allDataFile = in.readLine();
                 QStringList allDataFile_split = allDataFile.split('-');
-                passwords = allDataFile_split[0];
                 host_1 = allDataFile_split[1];
                 host_2 = allDataFile_split[2];
+                ui->label_5->setText(host_1);
             }
         }
     }
@@ -102,8 +100,8 @@ MainWindow::MainWindow(QWidget *parent)
                      {this->changeColorInActive(this->ui->P1_SDI_3, this->ui->P1_SDI_label_3, "P1" ); this->command(8,  "P1"); });
     QObject::connect(this->ui->P1_SDI_4, &QPushButton::clicked, this, [=]()
                      {this->changeColorInActive(this->ui->P1_SDI_4, this->ui->P1_SDI_label_4, "P1" ); this->command(9,  "P1"); });
-    QObject::connect(this->ui->sl_brightness_1, &QSlider::valueChanged, this, [=]()
-                     { this->changeBrightness(1); });
+    QObject::connect(this->ui->sl_brightness_1, &QScrollBar::valueChanged, this, [=]()
+                     { this->changeBrightness(this->ui->sl_brightness_1, this->ui->lbl_brightness_1_val_1, 1); });
     Active_btn = ui->P1_HDMI_Button_1;
     btn_label = ui->P1_HDMI_label_1;
 
@@ -127,9 +125,8 @@ MainWindow::MainWindow(QWidget *parent)
                      {this->changeColorInActive(this->ui->P2_SDI_3, this->ui->P2_SDI_label_3, "P2"); this->command(8, "P2"); });
     QObject::connect(this->ui->P2_SDI_4, &QPushButton::clicked, this, [=]()
                      {this->changeColorInActive(this->ui->P2_SDI_4, this->ui->P2_SDI_label_4, "P2"); this->command(9, "P2"); });
-    QObject::connect(this->ui->sl_brightness_2, &QSlider::valueChanged, this, [=]()
-                     { this->changeBrightness(2); });
-
+    QObject::connect(this->ui->sl_brightness_2, &QScrollBar::valueChanged, this, [=]()
+                     { this->changeBrightness(this->ui->sl_brightness_2, this->ui->lbl_brightness_1_val_2, 2); });
     //++++++++++++++++++++++++++++++++++++++++++++++ADMIN     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
     QObject::connect(this->ui->P1_Admin_HDMI_Button_1, &QPushButton::clicked, this, [=]()
@@ -214,59 +211,42 @@ void MainWindow::changeColorInActive(QPushButton *_btn, QLabel *lab, QString prt
     }
 }
 
-void MainWindow::changeBrightness(int pr)
+void MainWindow::changeBrightness(QScrollBar *ScrollBar , QLabel *Label, int pr)
 {
+    int val = ScrollBar ->value();
+    Label->setText(QString::number(val));
+    QChar fillChar = u'0';
+    QString hexvalue = tr("%1").arg(val, 4, 16, fillChar).toUpper();
+    bool ok;
+    QString lowDigits = hexvalue.last(2);
+    QString highDigits = hexvalue.first(2);
+
+    auto cks_int = 279; // La somme entière des premiers bits
+    cks_int = cks_int + lowDigits.toInt(&ok, 16) + highDigits.toInt(&ok, 16);
+
+    QString cks = tr("%1").arg(cks_int, 2, 16, fillChar).toUpper();
+    cks = cks.last(2);
+    // On fait la requete pour changer la luminosité
+    active_commandData = "0x03 0x10 0x00 0x00 0x05 0x00 0xFF 0x00 0x" + lowDigits + " 0x" + highDigits + " 0x" + cks;
     if (pr == 1)
     {
-        int val = ui->sl_brightness_1->value();
-        ui->lbl_brightness_1_val->setText(QString::number(val));
-        QChar fillChar = u'0';
-        QString hexvalue = tr("%1").arg(val, 4, 16, fillChar).toUpper();
-        bool ok;
-        QString lowDigits = hexvalue.last(2);
-        QString highDigits = hexvalue.first(2);
-
-        auto cks_int = 279; // La somme entière des premiers bits
-        cks_int = cks_int + lowDigits.toInt(&ok, 16) + highDigits.toInt(&ok, 16);
-
-        QString cks = tr("%1").arg(cks_int, 2, 16, fillChar).toUpper();
-        cks = cks.last(2);
-        // On fait la requete pour changer la luminosité
-        active_commandData = "0x03 0x10 0x00 0x00 0x05 0x00 0xFF 0x00 0x" + lowDigits + " 0x" + highDigits + " 0x" + cks;
         if (tcpSocket_1->isOpen())
         {
-
             byteArray = active_commandData.toUtf8();
-            socketStream << byteArray;
+            socketStream_1 << byteArray;
         }
     }
     else
     {
         if (tcpSocket_2->isOpen())
         {
-            int val = ui->sl_brightness_2->value();
-            ui->lbl_brightness_1_val_2->setText(QString::number(val));
-            QChar fillChar = u'0';
-            QString hexvalue = tr("%1").arg(val, 4, 16, fillChar).toUpper();
-            bool ok;
-            QString lowDigits = hexvalue.last(2);
-            QString highDigits = hexvalue.first(2);
-
-            auto cks_int = 279; // La somme entière des premiers bits
-            cks_int = cks_int + lowDigits.toInt(&ok, 16) + highDigits.toInt(&ok, 16);
-
-            QString cks = tr("%1").arg(cks_int, 2, 16, fillChar).toUpper();
-            cks = cks.last(2);
-            // On fait la requete pour changer la luminosité
-            active_commandData = "0x03 0x10 0x00 0x00 0x05 0x00 0xFF 0x00 0x" + lowDigits + " 0x" + highDigits + " 0x" + cks;
-
             byteArray = active_commandData.toUtf8();
-            socketStream_1 << byteArray;
+            socketStream_2 << byteArray;
         }
     }
 }
 
-void MainWindow::onOff_1()
+void MainWindow::onOff(int prt)
 {
     if (tcpSocket_1->isOpen())
     {
@@ -281,8 +261,22 @@ void MainWindow::onOff_1()
             active_commandData = "0x02 0x00 0x00 0x00 0x00 0x02"; // On allume
         }
         // On envoie la commande
-        byteArray_1 = active_commandData.toUtf8();
-        socketStream_1 << byteArray_1;
+        if (prt == 1)
+        {
+            if (tcpSocket_1->isOpen())
+            {
+                byteArray = active_commandData.toUtf8();
+                socketStream_1 << byteArray;
+            }
+        }
+        else if (prt == 2)
+        {
+            if (tcpSocket_2->isOpen())
+            {
+                byteArray = active_commandData.toUtf8();
+                socketStream_2 << byteArray;
+            }
+        }
     }
 }
 
@@ -463,3 +457,11 @@ void MainWindow::on_password_lineEdit_cursorPositionChanged()
     this->ui->incorrect_password->setText("");
 }
 
+void MainWindow::on_P1_On_Button_clicked()
+{
+    onOff(1);
+}
+void MainWindow::on_P2_On_Button_clicked()
+{
+    onOff(2);
+}

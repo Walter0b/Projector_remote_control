@@ -94,6 +94,19 @@ background-position: center;
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>60</y>
+         <width>331</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="page_2">
@@ -1001,7 +1014,7 @@ content: 'Status';</string>
         <string>connection status</string>
        </property>
       </widget>
-      <widget class="QLabel" name="lbl_brightness_1_val">
+      <widget class="QLabel" name="lbl_brightness_1_val_1">
        <property name="geometry">
         <rect>
          <x>291</x>
@@ -1051,7 +1064,7 @@ content: 'Status';</string>
       <zorder>P1_SDI_3</zorder>
       <zorder>P1_DisplayPort_2</zorder>
       <zorder>lbl_is_connected_1</zorder>
-      <zorder>lbl_brightness_1_val</zorder>
+      <zorder>lbl_brightness_1_val_1</zorder>
      </widget>
      <widget class="QPushButton" name="Admin_button">
       <property name="geometry">
@@ -1988,7 +2001,7 @@ background-repeat: none;</string>
         <rect>
          <x>147</x>
          <y>80</y>
-         <width>66</width>
+         <width>121</width>
          <height>18</height>
         </rect>
        </property>
