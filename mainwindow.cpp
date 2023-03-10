@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
                 QStringList allDataFile_split = allDataFile.split('-');
                 host_1 = allDataFile_split[1];
                 host_2 = allDataFile_split[2];
-                ui->label_5->setText(host_1);
             }
         }
     }
