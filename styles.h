@@ -56,6 +56,25 @@ public:
                         "border-radius: 8%;\n"
                         "border: none;\n"
                         "opacity: 0.5;\n";
+    QString On="border-image: url(:/On.png);"
+               "max-height: 70px;"
+               "max-width: 70px;"
+               "background-color: green;"
+               "border-radius:35px;"
+               "color :black;"
+               "font-weight:bold;"
+               "border: none;"
+               "background-repeat: none;";
+
+    QString Off="border-image: url(:/On.png);"
+                "max-height: 70px;"
+                "max-width: 70px;"
+                "background-color: Red;"
+                "border-radius:35px;"
+                "color :black;"
+                "font-weight:bold;"
+                "border: none;"
+                "background-repeat: none;";
 };
 
 
