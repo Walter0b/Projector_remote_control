@@ -300,7 +300,6 @@ void MainWindow::BtnControl(QPushButton *btn, QLabel *label, QLabel *Selflabel)
 
 void MainWindow::on_startButton_clicked()
 {
-
     this->ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -318,6 +317,7 @@ void MainWindow::on_Sleep_Button_clicked()
 
 void MainWindow::on_pushButton_14_clicked()
 {
+
     QString password = ui->password_lineEdit->text();
     if (password.toInt() == this->password)
     {
@@ -341,7 +341,6 @@ void MainWindow::on_pushButton_13_clicked()
 {
     this->ui->incorrect_password->setText("");
     this->ui->password_lineEdit->setText("");
-
     this->ui->stackedWidget->setCurrentIndex(1);
 }
 /*method to send projector command for a clicked button*/
@@ -398,3 +397,4 @@ void MainWindow::on_password_lineEdit_cursorPositionChanged()
         this->ui->password_lineEdit->setStyleSheet(this->custom_style->rm_border);
     this->ui->incorrect_password->setText("");
 }
+
