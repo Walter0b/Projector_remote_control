@@ -379,8 +379,8 @@ background-repeat: none;
 border-style: solid; 
 background-repeat: none;  
 border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+background-repeat: no-repeat;
+background-attachment: fixed;
 
 
 
@@ -636,7 +636,7 @@ background-color: none;</string>
 border-radius: 8%;
 border-image: url(:sdi.svg);
 border: none;
-background-possition:center;
+background-position:center;
 border-size :cover;
 background-color: none;</string>
        </property>
@@ -695,8 +695,8 @@ background-color: none;
 border-radius: 8%;
 border-image: url(:sdi.svg);
 border: none;
-background-possition:center;
-border-size :cover;</string>
+background-position:center;
+</string>
        </property>
        <property name="text">
         <string/>
