@@ -424,7 +424,7 @@ void MainWindow::on_Sleep_Button_clicked()
     this->ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_pushButton_14_clicked()
+void MainWindow::on_Admin_next_button_clicked()
 {
 
     QString password = ui->password_lineEdit->text();
@@ -452,6 +452,7 @@ void MainWindow::on_pushButton_13_clicked()
     this->ui->password_lineEdit->setText("");
     this->ui->stackedWidget->setCurrentIndex(1);
 }
+
 /*method to send projector command for a clicked button*/
 void MainWindow::command(int btn_id, QString prt)
 {
@@ -518,3 +519,4 @@ void MainWindow::on_P2_On_Button_clicked()
 {
     onOff(2, ui->P2_On_Button);
 }
+

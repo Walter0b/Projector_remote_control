@@ -1697,7 +1697,7 @@ border-bottom: 2px solid gray;</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_14">
+      <widget class="QPushButton" name="Admin_next_button">
        <property name="geometry">
         <rect>
          <x>263</x>
