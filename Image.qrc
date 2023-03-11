@@ -2,9 +2,9 @@
     <qresource prefix="/">
         <file>HDMI.png</file>
         <file>Off</file>
-        <file>DisplacePort.png</file>
-        <file>RJ-45.png</file>
-        <file>sdi.svg</file>
+        <file>DisplayPort.png</file>
+        <file>HDBaseT.png</file>
+        <file>SDI.svg</file>
         <file>LAN_Port.png</file>
         <file>On.png</file>
         <file>power-btn.png</file>
