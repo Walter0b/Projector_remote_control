@@ -10,8 +10,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow),
 
-      tcpSocket_1(new QTcpSocket(this)),
-      tcpSocket_2(new QTcpSocket(this))
+    tcpSocket_1(new QTcpSocket(this)),
+    tcpSocket_2(new QTcpSocket(this))
 
 {
 
@@ -74,43 +74,47 @@ MainWindow::MainWindow(QWidget *parent)
         is_connected_1 = false;
         powerState_1 = false;
 
+
         //------------disable every button-----//
         for (int i = 0; i < 9; i++)
         {
             AllBtn[i]->setEnabled(false);
         }
         //------------signal that the projector is offline-----//
-        ui->lbl_is_connected_1->setText("Not Connected");
-        ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+        this->ui->lbl_is_connected_1->setText("Not Connected");
+        this->ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+
     }
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 
-    ui->lbl_is_connected_2->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    this->ui->lbl_is_connected_2->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     tcpSocket_2->connectToHost(host_2, 7142);
     if (tcpSocket_2->waitForConnected())
     {
         is_connected_2 = true;
         powerState_2 = true;
-        ui->lbl_is_connected_2->setText("Connected");
+
+        this->ui->lbl_is_connected_2->setText("Connected");
         //------------Enable every button-----//
         for (int i = 8; i < 18; i++)
         {
             AllBtn[i]->setEnabled(true);
         }
-        ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+
+        this->ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     }
     else
     {
         is_connected_2 = false;
         powerState_2 = false;
-        ui->lbl_is_connected_2->setText("Not Connected");
-        ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
-
-        //------------Disable every button-----//
+        //------------Disable every button-----/
+        this->ui->lbl_is_connected_2->setText("Not Connected");
+        this->ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
         for (int i = 8; i < 18; i++)
         {
             AllBtn[i]->setEnabled(false);
         }
+
     }
 
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
@@ -145,6 +149,7 @@ MainWindow::MainWindow(QWidget *parent)
                      {this->changeColorInActive(this->ui->P1_SDI_4, "P1" ); this->command(9,  "P1"); });
     QObject::connect(this->ui->sl_brightness_1, &QScrollBar::valueChanged, this, [=]()
                      { this->changeBrightness(this->ui->sl_brightness_1, this->ui->lbl_brightness_1_val_1, 1); });
+
     Active_btn = ui->P1_HDMI_Button_1;
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
@@ -238,7 +243,6 @@ MainWindow::~MainWindow()
     }
 
     connectThread->kill = true;
-
     delete this->Active_btn;
     delete this->Active_btn2;
     delete this->ui;
@@ -335,30 +339,30 @@ void MainWindow::onOff(int prt, QPushButton *button)
 
 void MainWindow::connected_1()
 {
-    ui->lbl_is_connected_1->setText("Connected");
-    ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
+    this->ui->lbl_is_connected_1->setText("Connected");
+    this->ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     is_connected_1 = true;
 }
 
 void MainWindow::disconnected_1()
 {
-    ui->lbl_is_connected_1->setText("Not Connected");
-    ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+    this->ui->lbl_is_connected_1->setText("Not Connected");
+    this->ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
     is_connected_1 = false;
     connectThread->is_connected_1 = false;
 }
 
 void MainWindow::connected_2()
 {
-    ui->lbl_is_connected_2->setText("Connected");
-    ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+    this->ui->lbl_is_connected_2->setText("Connected");
+    this->ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     is_connected_2 = true;
 }
 
 void MainWindow::disconnected_2()
 {
-    ui->lbl_is_connected_2->setText("Not Connected");
-    ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
+    this->ui->lbl_is_connected_2->setText("Not Connected");
+    this->ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
     is_connected_2 = false;
     connectThread->is_connected_2 = false;
 }
@@ -371,8 +375,8 @@ void MainWindow::onConnexionStatusChanged_1()
     {
         is_connected_1 = true;
         powerState_1 = true;
-        ui->lbl_is_connected_1->setText("Connected");
-        ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
+        this->ui->lbl_is_connected_1->setText("Connected");
+        this->ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     }
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 }
@@ -385,8 +389,8 @@ void MainWindow::onConnexionStatusChanged_2()
     {
         is_connected_2 = true;
         powerState_2 = true;
-        ui->lbl_is_connected_2->setText("Connected");
-        ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+        this->ui->lbl_is_connected_2->setText("Connected");
+        this->ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     }
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
 }
@@ -426,11 +430,9 @@ void MainWindow::on_Sleep_Button_clicked()
 
 void MainWindow::on_Admin_next_button_clicked()
 {
-
     QString password = ui->password_lineEdit->text();
     if (password.toInt() == this->password)
     {
-
         this->ui->stackedWidget->setCurrentIndex(3);
         this->ui->password_lineEdit->setText("");
     }
@@ -440,7 +442,6 @@ void MainWindow::on_Admin_next_button_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-
     this->ui->stackedWidget->setCurrentIndex(1);
     this->ui->incorrect_password->setText("");
     this->ui->password_lineEdit->setText("");
@@ -493,8 +494,7 @@ void MainWindow::command(int btn_id, QString prt)
         byteArray = active_commandData.toUtf8();
         socketStream_1 << byteArray;
     }
-    else
-    {
+    else{
         // On envoie la commande
         byteArray = active_commandData.toUtf8();
         socketStream_2 << byteArray;
@@ -503,7 +503,6 @@ void MainWindow::command(int btn_id, QString prt)
 
 void MainWindow::on_password_lineEdit_cursorPositionChanged()
 {
-
     if (this->ui->password_lineEdit->text().size() > 0)
         this->ui->password_lineEdit->setStyleSheet(this->custom_style->border);
     else
