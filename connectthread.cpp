@@ -51,7 +51,11 @@ void ConnectThread::run()
 
         msleep(100);
     }
+    delete socket_2;
+    delete socket_1;
+
 }
+
 
 ConnectThread::~ConnectThread()
 {

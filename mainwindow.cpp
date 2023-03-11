@@ -9,9 +9,12 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow),
+
       tcpSocket_1(new QTcpSocket(this)),
       tcpSocket_2(new QTcpSocket(this))
+
 {
+
     this->ui->setupUi(this);
     this->ui->stackedWidget->setCurrentIndex(0);
     this->ui->incorrect_password->setText("");
@@ -33,6 +36,25 @@ MainWindow::MainWindow(QWidget *parent)
         }
     }
 
+    QVector<QPushButton *> AllBtn = {
+        ui->P1_HDMI_Button_1,
+        ui->P1_HDMI_Button_2,
+        ui->P1_DisplayPort_1,
+        ui->P1_DisplayPort_2,
+        ui->P1_HDBaseT,
+        ui->P1_SDI_1,
+        ui->P1_SDI_2,
+        ui->P1_SDI_3,
+        ui->P1_SDI_4,
+        ui->P2_HDMI_Button_1,
+        ui->P2_HDMI_Button_2,
+        ui->P2_DisplayPort_1,
+        ui->P2_DisplayPort_2,
+        ui->P2_HDBaseT,
+        ui->P2_SDI_1,
+        ui->P2_SDI_2,
+        ui->P2_SDI_3,
+        ui->P2_SDI_4};
     ui->lbl_is_connected_1->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     tcpSocket_1->connectToHost(host_1, 7142);
     if (tcpSocket_1->waitForConnected())
@@ -40,12 +62,24 @@ MainWindow::MainWindow(QWidget *parent)
         is_connected_1 = true;
         powerState_1 = true;
         ui->lbl_is_connected_1->setText("Connected");
+        //------------Enable every button-----//
+        for (int i = 0; i < 9; i++)
+        {
+            AllBtn[i]->setEnabled(true);
+        }
         ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     }
     else
     {
         is_connected_1 = false;
         powerState_1 = false;
+
+        //------------disable every button-----//
+        for (int i = 0; i < 9; i++)
+        {
+            AllBtn[i]->setEnabled(false);
+        }
+        //------------signal that the projector is offline-----//
         ui->lbl_is_connected_1->setText("Not Connected");
         ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
     }
@@ -58,6 +92,11 @@ MainWindow::MainWindow(QWidget *parent)
         is_connected_2 = true;
         powerState_2 = true;
         ui->lbl_is_connected_2->setText("Connected");
+        //------------Enable every button-----//
+        for (int i = 8; i < 18; i++)
+        {
+            AllBtn[i]->setEnabled(true);
+        }
         ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     }
     else
@@ -66,13 +105,18 @@ MainWindow::MainWindow(QWidget *parent)
         powerState_2 = false;
         ui->lbl_is_connected_2->setText("Not Connected");
         ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
+
+        //------------Disable every button-----//
+        for (int i = 8; i < 18; i++)
+        {
+            AllBtn[i]->setEnabled(false);
+        }
     }
+
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
 
     socketStream_1.setDevice(tcpSocket_1);
-    socketStream_1.setVersion(QDataStream::Qt_6_4);
     socketStream_2.setDevice(tcpSocket_2);
-    socketStream_2.setVersion(QDataStream::Qt_6_4);
 
     connectThread = new ConnectThread(this, is_connected_1, is_connected_2, host_1, host_2);
     connectThread->start();
@@ -82,137 +126,148 @@ MainWindow::MainWindow(QWidget *parent)
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
     QObject::connect(this->ui->P1_HDMI_Button_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_HDMI_Button_1, this->ui->P1_HDMI_label_1, "P1" ); this->command(1, "P1"); });
+                     {this->changeColorInActive(this->ui->P1_HDMI_Button_1, "P1" ); this->command(1, "P1"); });
     QObject::connect(this->ui->P1_HDMI_Button_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_HDMI_Button_2, this->ui->P1_HDMI_label_2, "P1" ); this->command(2, "P1"); });
+                     {this->changeColorInActive(this->ui->P1_HDMI_Button_2, "P1" ); this->command(2, "P1"); });
     QObject::connect(this->ui->P1_DisplayPort_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_DisplayPort_1, this->ui->P1_DisplayPort_label_1, "P1" );this->command(3,   "P1"); });
+                     {this->changeColorInActive(this->ui->P1_DisplayPort_1, "P1" );this->command(3,   "P1"); });
     QObject::connect(this->ui->P1_DisplayPort_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_DisplayPort_2, this->ui->P1_DisplayPort_label_2, "P1" ); this->command(4,  "P1"); });
+                     {this->changeColorInActive(this->ui->P1_DisplayPort_2, "P1" ); this->command(4,  "P1"); });
     QObject::connect(this->ui->P1_HDBaseT, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_HDBaseT, this->ui->P1_HDBaseT_label, "P1" ); this->command(5,  "P1"); });
+                     {this->changeColorInActive(this->ui->P1_HDBaseT, "P1" ); this->command(5,  "P1"); });
     QObject::connect(this->ui->P1_SDI_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_SDI_1, this->ui->P1_SDI_label_1, "P1" ); this->command(6,  "P1"); });
+                     {this->changeColorInActive(this->ui->P1_SDI_1, "P1" ); this->command(6,  "P1"); });
     QObject::connect(this->ui->P1_SDI_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_SDI_2, this->ui->P1_SDI_label_2, "P1" ); this->command(7,  "P1"); });
+                     {this->changeColorInActive(this->ui->P1_SDI_2, "P1" ); this->command(7,  "P1"); });
     QObject::connect(this->ui->P1_SDI_3, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_SDI_3, this->ui->P1_SDI_label_3, "P1" ); this->command(8,  "P1"); });
+                     {this->changeColorInActive(this->ui->P1_SDI_3, "P1" ); this->command(8,  "P1"); });
     QObject::connect(this->ui->P1_SDI_4, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P1_SDI_4, this->ui->P1_SDI_label_4, "P1" ); this->command(9,  "P1"); });
+                     {this->changeColorInActive(this->ui->P1_SDI_4, "P1" ); this->command(9,  "P1"); });
     QObject::connect(this->ui->sl_brightness_1, &QScrollBar::valueChanged, this, [=]()
                      { this->changeBrightness(this->ui->sl_brightness_1, this->ui->lbl_brightness_1_val_1, 1); });
     Active_btn = ui->P1_HDMI_Button_1;
-    btn_label = ui->P1_HDMI_label_1;
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-
     QObject::connect(this->ui->P2_HDMI_Button_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_HDMI_Button_1, this->ui->P2_HDMI_label_1,  "P2"); this->command(1, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_HDMI_Button_1,  "P2"); this->command(1, "P2"); });
     QObject::connect(this->ui->P2_HDMI_Button_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_HDMI_Button_2, this->ui->P2_HDMI_label_2, "P2"); this->command(2, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_HDMI_Button_2, "P2"); this->command(2, "P2"); });
     QObject::connect(this->ui->P2_HDBaseT, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_HDBaseT, this->ui->P2_HDBaseT_label, "P2"); this->command(3, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_HDBaseT,  "P2"); this->command(3, "P2"); });
     QObject::connect(this->ui->P2_DisplayPort_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_DisplayPort_1, this->ui->P2_DisplayPort_label_1, "P2"); this->command(4, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_DisplayPort_1, "P2"); this->command(4, "P2"); });
     QObject::connect(this->ui->P2_DisplayPort_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_DisplayPort_2, this->ui->P2_DisplayPort_label_2, "P2"); this->command(5, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_DisplayPort_2, "P2"); this->command(5, "P2"); });
     QObject::connect(this->ui->P2_SDI_1, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_1, this->ui->P2_SDI_label_1, "P2"); this->command(6, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_SDI_1, "P2"); this->command(6, "P2"); });
     QObject::connect(this->ui->P2_SDI_2, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_2, this->ui->P2_SDI_label_2, "P2"); this->command(7, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_SDI_2, "P2"); this->command(7, "P2"); });
     QObject::connect(this->ui->P2_SDI_3, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_3, this->ui->P2_SDI_label_3, "P2"); this->command(8, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_SDI_3, "P2"); this->command(8, "P2"); });
     QObject::connect(this->ui->P2_SDI_4, &QPushButton::clicked, this, [=]()
-                     {this->changeColorInActive(this->ui->P2_SDI_4, this->ui->P2_SDI_label_4, "P2"); this->command(9, "P2"); });
+                     {this->changeColorInActive(this->ui->P2_SDI_4, "P2"); this->command(9, "P2"); });
     QObject::connect(this->ui->sl_brightness_2, &QScrollBar::valueChanged, this, [=]()
                      { this->changeBrightness(this->ui->sl_brightness_2, this->ui->lbl_brightness_1_val_2, 2); });
+
     //++++++++++++++++++++++++++++++++++++++++++++++ADMIN     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
     QObject::connect(this->ui->P1_Admin_HDMI_Button_1, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_HDMI_Button_1, this->ui->P1_HDMI_label_1, this->ui->P1_Admin_HDMI_label_1); });
+                     { this->BtnControl(this->ui->P1_HDMI_Button_1, this->ui->P1_HDMI_Button_1); });
     QObject::connect(this->ui->P1_Admin_HDMI_Button_2, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_HDMI_Button_2, this->ui->P1_HDMI_label_2, this->ui->P1_Admin_HDMI_label_2); });
+                     { this->BtnControl(this->ui->P1_HDMI_Button_2, this->ui->P1_Admin_HDMI_Button_2); });
     QObject::connect(this->ui->P1_Admin_DisplayPort_1, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_DisplayPort_1, this->ui->P1_DisplayPort_label_1, this->ui->P1_Admin_DisplayPort_label_1); });
+                     { this->BtnControl(this->ui->P1_DisplayPort_1, this->ui->P1_Admin_DisplayPort_1); });
     QObject::connect(this->ui->P1_Admin_DisplayPort_2, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_DisplayPort_2, this->ui->P1_DisplayPort_label_2, this->ui->P1_Admin_DisplayPort_label_2); });
+                     { this->BtnControl(this->ui->P1_DisplayPort_2, this->ui->P1_Admin_DisplayPort_2); });
     QObject::connect(this->ui->P1_Admin_HDBaseT, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_HDBaseT, this->ui->P1_HDBaseT_label, this->ui->P1_Admin_HDBaseT_label); });
+                     { this->BtnControl(this->ui->P1_HDBaseT, this->ui->P1_Admin_HDBaseT); });
     QObject::connect(this->ui->P1_Admin_SDI_1, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_SDI_1, this->ui->P1_SDI_label_1, this->ui->P1_Admin_SDI_label_1); });
+                     { this->BtnControl(this->ui->P1_SDI_1, this->ui->P1_Admin_SDI_1); });
     QObject::connect(this->ui->P1_Admin_SDI_2, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_SDI_2, this->ui->P1_SDI_label_2, this->ui->P1_Admin_SDI_label_2); });
+                     { this->BtnControl(this->ui->P1_SDI_2, this->ui->P1_Admin_SDI_2); });
     QObject::connect(this->ui->P1_Admin_SDI_3, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_SDI_3, this->ui->P1_SDI_label_3, this->ui->P1_Admin_SDI_label_3); });
+                     { this->BtnControl(this->ui->P1_SDI_3, this->ui->P1_Admin_SDI_3); });
     QObject::connect(this->ui->P1_Admin_SDI_4, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_SDI_4, this->ui->P1_SDI_label_4, this->ui->P1_Admin_SDI_label_4); });
+                     { this->BtnControl(this->ui->P1_SDI_4, this->ui->P1_Admin_SDI_4); });
 
     //++++++++++++++++++++++++++++++++++++++++++++++ADMIN     projecotr 2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
     QObject::connect(this->ui->P2_Admin_HDMI_Button_1, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_HDMI_Button_1, this->ui->P2_HDMI_label_1, this->ui->P2_Admin_HDMI_label_1); });
+                     { this->BtnControl(this->ui->P2_HDMI_Button_1, this->ui->P2_Admin_HDMI_Button_1); });
     QObject::connect(this->ui->P2_Admin_HDMI_Button_2, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_HDMI_Button_2, this->ui->P2_HDMI_label_2, this->ui->P2_Admin_HDMI_label_2); });
-    QObject::connect(this->ui->P2_Admin_DisplayPort_1, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_DisplayPort_1, this->ui->P2_DisplayPort_label_1, this->ui->P2_Admin_DisplayPort_label_1); });
+                     { this->BtnControl(this->ui->P2_HDMI_Button_2, this->ui->P2_Admin_HDMI_Button_2); });
+    QObject::connect(this->ui->P1_Admin_DisplayPort_1, &QPushButton::clicked, this, [=]()
+                     { this->BtnControl(this->ui->P2_DisplayPort_1, this->ui->P2_Admin_DisplayPort_1); });
     QObject::connect(this->ui->P2_Admin_DisplayPort_2, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_DisplayPort_2, this->ui->P2_DisplayPort_label_2, this->ui->P2_Admin_DisplayPort_label_2); });
+                     { this->BtnControl(this->ui->P2_DisplayPort_2, this->ui->P2_Admin_DisplayPort_2); });
     QObject::connect(this->ui->P2_Admin_HDBaseT, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_HDBaseT, this->ui->P2_HDBaseT_label, this->ui->P2_Admin_HDBaseT_label); });
+                     { this->BtnControl(this->ui->P2_HDBaseT, this->ui->P2_Admin_HDBaseT); });
     QObject::connect(this->ui->P2_Admin_SDI_1, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_SDI_1, this->ui->P2_SDI_label_1, this->ui->P2_Admin_SDI_label_1); });
+                     { this->BtnControl(this->ui->P2_SDI_1, this->ui->P2_Admin_SDI_1); });
     QObject::connect(this->ui->P2_Admin_SDI_2, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_SDI_2, this->ui->P2_SDI_label_2, this->ui->P2_Admin_SDI_label_2); });
+                     { this->BtnControl(this->ui->P2_SDI_2, this->ui->P2_Admin_SDI_2); });
     QObject::connect(this->ui->P2_Admin_SDI_3, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_SDI_3, this->ui->P2_SDI_label_3, this->ui->P2_Admin_SDI_label_3); });
+                     { this->BtnControl(this->ui->P2_SDI_3, this->ui->P2_Admin_SDI_3); });
     QObject::connect(this->ui->P2_Admin_SDI_4, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P2_SDI_4, this->ui->P2_SDI_label_4, this->ui->P2_Admin_SDI_label_4); });
+                     { this->BtnControl(this->ui->P2_SDI_4, this->ui->P2_Admin_SDI_4); });
 
     Active_btn2 = ui->P2_HDMI_Button_1;
-    btn_label2 = ui->P2_HDMI_label_1;
 }
 
 MainWindow::~MainWindow()
 {
+
     if (tcpSocket_1->isOpen())
         tcpSocket_1->close();
     if (tcpSocket_2->isOpen())
         tcpSocket_2->close();
 
+    if (!tcpSocket_2->isOpen())
+    {
+
+        ui->P2_HDMI_Button_1->setEnabled(false);
+        ui->P2_HDMI_Button_2->setEnabled(false);
+        ui->P2_DisplayPort_1->setEnabled(false);
+        ui->P2_DisplayPort_2->setEnabled(false);
+        ui->P2_HDBaseT->setEnabled(false);
+        ui->P2_SDI_1->setEnabled(false);
+        ui->P2_SDI_2->setEnabled(false);
+        ui->P2_SDI_3->setEnabled(false);
+        ui->P2_SDI_4->setEnabled(false);
+        ui->sl_brightness_1->setEnabled(false);
+    }
+
     connectThread->kill = true;
 
     delete this->Active_btn;
-    delete this->btn_label;
     delete this->Active_btn2;
-    delete this->btn_label2;
     delete this->ui;
     delete this->custom_style;
     // delete Disable_btn;
 }
 
-void MainWindow::changeColorInActive(QPushButton *_btn, QLabel *lab, QString prt)
+void MainWindow::changeColorInActive(QPushButton *_btn, QString prt)
 {
-    if (prt == "P1")
+    if (prt == "P1" && tcpSocket_1->isOpen())
     {
         if (Active_btn->isEnabled())
-            btn_label->setStyleSheet(this->custom_style->Orange);
-        btn_label = lab;
-        btn_label->setStyleSheet(this->custom_style->Green);
+            Active_btn->setStyleSheet(this->custom_style->Orange);
+        _btn->setStyleSheet(this->custom_style->Green);
         Active_btn = _btn;
     }
-    else
+    else if (tcpSocket_2->isOpen())
     {
         if (Active_btn2->isEnabled())
-            btn_label2->setStyleSheet(this->custom_style->Orange);
-        btn_label2 = lab;
-        btn_label2->setStyleSheet(this->custom_style->Green);
+            Active_btn2->setStyleSheet(this->custom_style->Orange);
+        _btn->setStyleSheet(this->custom_style->Green);
         Active_btn2 = _btn;
     }
 }
 
-void MainWindow::changeBrightness(QScrollBar *ScrollBar , QLabel *Label, int pr)
+void MainWindow::changeBrightness(QScrollBar *ScrollBar, QLabel *Label, int pr)
 {
-    int val = ScrollBar ->value();
+
+    int val = ScrollBar->value();
     Label->setText(QString::number(val));
     QChar fillChar = u'0';
     QString hexvalue = tr("%1").arg(val, 4, 16, fillChar).toUpper();
@@ -255,33 +310,25 @@ void MainWindow::onOff(int prt, QPushButton *button)
             powerState_1 = false;
             active_commandData = "0x02 0x01 0x00 0x00 0x00 0x03"; // On éteint
             color = this->custom_style->Off;
-
         }
         else
         {
             powerState_1 = true;
             active_commandData = "0x02 0x00 0x00 0x00 0x00 0x02"; // On allume
-             color = this->custom_style->On;
+            color = this->custom_style->On;
         }
         // On envoie la commande
-        if (prt == 1)
+        if (prt == 1 && tcpSocket_1->isOpen())
         {
-
-            if (tcpSocket_1->isOpen())
-            {
-                button->setStyleSheet(color);
-                byteArray = active_commandData.toUtf8();
-                socketStream_1 << byteArray;
-            }
+            button->setStyleSheet(color);
+            byteArray = active_commandData.toUtf8();
+            socketStream_1 << byteArray;
         }
-        else if (prt == 2)
+        else if (prt == 2 && tcpSocket_2->isOpen())
         {
-            if (tcpSocket_2->isOpen())
-            {
-                button->setStyleSheet(color);
-                byteArray = active_commandData.toUtf8();
-                socketStream_2 << byteArray;
-            }
+            button->setStyleSheet(color);
+            byteArray = active_commandData.toUtf8();
+            socketStream_2 << byteArray;
         }
     }
 }
@@ -344,19 +391,19 @@ void MainWindow::onConnexionStatusChanged_2()
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
 }
 
-void MainWindow::BtnControl(QPushButton *btn, QLabel *label, QLabel *Selflabel)
+void MainWindow::BtnControl(QPushButton *btn, QPushButton *selfbtn)
 {
     if (btn->isEnabled())
     {
         btn->setEnabled(false);
-        label->setStyleSheet(this->custom_style->Gray);
-        Selflabel->setStyleSheet(this->custom_style->Gray);
+        btn->setStyleSheet(this->custom_style->Gray);
+        selfbtn->setStyleSheet(this->custom_style->Gray);
     }
     else
     {
         btn->setEnabled(true);
-        label->setStyleSheet(this->custom_style->Orange);
-        Selflabel->setStyleSheet(this->custom_style->Orange);
+        btn->setStyleSheet(this->custom_style->Orange);
+        selfbtn->setStyleSheet(this->custom_style->Orange);
     }
 }
 
@@ -377,7 +424,7 @@ void MainWindow::on_Sleep_Button_clicked()
     this->ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_pushButton_14_clicked()
+void MainWindow::on_Admin_next_button_clicked()
 {
 
     QString password = ui->password_lineEdit->text();
@@ -405,6 +452,7 @@ void MainWindow::on_pushButton_13_clicked()
     this->ui->password_lineEdit->setText("");
     this->ui->stackedWidget->setCurrentIndex(1);
 }
+
 /*method to send projector command for a clicked button*/
 void MainWindow::command(int btn_id, QString prt)
 {
@@ -465,9 +513,10 @@ void MainWindow::on_password_lineEdit_cursorPositionChanged()
 
 void MainWindow::on_P1_On_Button_clicked()
 {
-    onOff(1,ui->P1_On_Button);
+    onOff(1, ui->P1_On_Button);
 }
 void MainWindow::on_P2_On_Button_clicked()
 {
-    onOff(2,ui->P2_On_Button);
+    onOff(2, ui->P2_On_Button);
 }
+

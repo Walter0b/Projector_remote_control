@@ -35,27 +35,9 @@ public:
                         "text-align: center;"
                         "color: #fff;"
                         "border-bottom: 2px solid gray;";
-    QString Orange =    "max-height: 50px;\n"
-                        "min-height:61;\n"
-                        "min-width:81;\n"
-                        "background-color: rgb(255, 120, 0);\n"
-                        "border-radius: 8%;\n"
-                        "border: none;\n"
-                        "background-repeat: none;\n"
-                        "opacity: 1;\n";
-    QString Green =     "max-height: 50px;\n"
-                        "min-height:61;\n"
-                        "min-width:81;\n"
-                        "background-color: rgb(46, 194, 126);\n"
-                        "border-radius: 8%;\n"
-                        "border: none;\n";
-    QString Gray =      "max-height: 50px;\n"
-                        "min-height:61;\n"
-                        "min-width:81;\n"
-                        "background-color: gray;\n"
-                        "border-radius: 8%;\n"
-                        "border: none;\n"
-                        "opacity: 0.5;\n";
+    QString Orange =     "background-color: rgb(255, 120, 0);\n";
+    QString Green =     "background-color: rgb(46, 194, 126);\n";
+    QString Gray =       "background-color: gray;\n";
     QString On="border-image: url(:/On.png);"
                "max-height: 70px;"
                "max-width: 70px;"
