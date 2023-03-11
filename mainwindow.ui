@@ -120,7 +120,7 @@ border: none;
      <string notr="true">background: #101010;</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
@@ -251,30 +251,6 @@ right: 500px;</string>
        </property>
        <property name="text">
         <string/>
-       </property>
-      </widget>
-      <widget class="QScrollBar" name="sl_brightness_1">
-       <property name="geometry">
-        <rect>
-         <x>107</x>
-         <y>384</y>
-         <width>160</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: white;
-background-color:rgba(53, 53, 53, 0.8);
-</string>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -841,8 +817,23 @@ content: 'Status';</string>
         <string>0</string>
        </property>
       </widget>
+      <widget class="QSlider" name="sl_brightness_1">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>390</y>
+         <width>160</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
       <zorder>line</zorder>
-      <zorder>sl_brightness_1</zorder>
       <zorder>line_3</zorder>
       <zorder>label</zorder>
       <zorder>P1_SDI_1</zorder>
@@ -867,6 +858,7 @@ content: 'Status';</string>
       <zorder>label_15</zorder>
       <zorder>label_12</zorder>
       <zorder>label_3</zorder>
+      <zorder>sl_brightness_1</zorder>
      </widget>
      <widget class="QPushButton" name="Admin_button">
       <property name="geometry">
@@ -982,29 +974,6 @@ border-bottom: 2px solid white;</string>
        </property>
        <property name="text">
         <string/>
-       </property>
-      </widget>
-      <widget class="QScrollBar" name="sl_brightness_2">
-       <property name="geometry">
-        <rect>
-         <x>106</x>
-         <y>385</y>
-         <width>160</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: white;
-background-color:rgba(53, 53, 53, 0.8);</string>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
       <widget class="QLabel" name="label_4">
@@ -1570,8 +1539,20 @@ color: black;</string>
         <string>0</string>
        </property>
       </widget>
+      <widget class="QSlider" name="sl_brightness_2">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>390</y>
+         <width>160</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
       <zorder>line_2</zorder>
-      <zorder>sl_brightness_2</zorder>
       <zorder>label_4</zorder>
       <zorder>line_4</zorder>
       <zorder>P2_SDI_1</zorder>
@@ -1596,6 +1577,7 @@ color: black;</string>
       <zorder>label_28</zorder>
       <zorder>label_2</zorder>
       <zorder>label_21</zorder>
+      <zorder>sl_brightness_2</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">

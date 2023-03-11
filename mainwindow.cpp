@@ -51,9 +51,8 @@ MainWindow::MainWindow(QWidget *parent)
         is_connected_1 = false;
         powerState_1 = false;
         //------------signal that the projector is offline-----//
-        this->ui->lbl_is_connected_1->setText("Not Connected");
-        this->ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
-
+        ui->lbl_is_connected_1->setText("Not Connected");
+        ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
     }
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 
@@ -96,8 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(this->ui->P1_SDI_2, &QPushButton::clicked, this, [=]() {this->command(7, "P1",this->ui->P1_SDI_2); });
     QObject::connect(this->ui->P1_SDI_3, &QPushButton::clicked, this, [=]() {this->command(8, "P1",this->ui->P1_SDI_3); });
     QObject::connect(this->ui->P1_SDI_4, &QPushButton::clicked, this, [=]() {this->command(9, "P1",this->ui->P1_SDI_4); });
-    QObject::connect(this->ui->sl_brightness_1, &QScrollBar::valueChanged, this, [=]()
-                     { this->changeBrightness(this->ui->sl_brightness_1, this->ui->lbl_brightness_1_val_1, 1); });
+    connect(ui->sl_brightness_1, &QSlider::valueChanged, this, [=](){this->changeBrightness(1);});
     Active_btn = ui->P1_HDMI_Button_1;
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
@@ -110,7 +108,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(this->ui->P2_SDI_1, &QPushButton::clicked, this, [=]() {this->command(7, "P2",this->ui->P2_SDI_2); });
     QObject::connect(this->ui->P2_SDI_1, &QPushButton::clicked, this, [=]() {this->command(8, "P2",this->ui->P2_SDI_3); });
     QObject::connect(this->ui->P2_SDI_1, &QPushButton::clicked, this, [=]() {this->command(9, "P2",this->ui->P2_SDI_4); });
-    QObject::connect(this->ui->sl_brightness_2, &QScrollBar::valueChanged, this, [=]() { this->changeBrightness(this->ui->sl_brightness_2, this->ui->lbl_brightness_1_val_2, 2); });
+    connect(ui->sl_brightness_2, &QSlider::valueChanged, this, [=](){this->changeBrightness(2);});
 
     //++++++++++++++++++++++++++++++++++++++++++++++ADMIN     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -154,7 +152,11 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(this->ui->P2_Admin_SDI_4, &QPushButton::clicked, this, [=]()
                      { this->BtnControl(this->ui->P2_SDI_4, this->ui->P2_Admin_SDI_4); });
 
+
+
     Active_btn2 = ui->P2_HDMI_Button_1;
+    ui->lbl_brightness_1_val_1->setText("50");
+    ui->lbl_brightness_1_val_2->setText("50");
 }
 
 MainWindow::~MainWindow()
@@ -191,12 +193,10 @@ void MainWindow::changeColorInActive(QPushButton *_btn, QString prt)
     }
 }
 
-void MainWindow::changeBrightness(QScrollBar *ScrollBar, QLabel *Label, int pr)
+void MainWindow::changeBrightness(int remote)
 {
-
-    int val = ScrollBar->value();
-    Label->setText(QString::number(val));
     QChar fillChar = u'0';
+    int val = (remote==1)?ui->sl_brightness_1->value():ui->sl_brightness_2->value();
     QString hexvalue = tr("%1").arg(val, 4, 16, fillChar).toUpper();
     bool ok;
     QString lowDigits = hexvalue.last(2);
@@ -209,18 +209,19 @@ void MainWindow::changeBrightness(QScrollBar *ScrollBar, QLabel *Label, int pr)
     cks = cks.last(2);
     // On fait la requete pour changer la luminosité
     active_commandData = "0x03 0x10 0x00 0x00 0x05 0x00 0xFF 0x00 0x" + lowDigits + " 0x" + highDigits + " 0x" + cks;
-    if (pr == 1)
-    {
-        if (tcpSocket_1->isOpen())
+    if(remote == 1){
+        ui->lbl_brightness_1_val_1->setText(QString::number(val));
+        if(tcpSocket_1->isOpen())
         {
+            // On envoie la commande
             byteArray = active_commandData.toUtf8();
             socketStream_1 << byteArray;
         }
-    }
-    else
-    {
-        if (tcpSocket_2->isOpen())
+    }else{
+        ui->lbl_brightness_1_val_2->setText(QString::number(val));
+        if(tcpSocket_2->isOpen())
         {
+            // On envoie la commande
             byteArray = active_commandData.toUtf8();
             socketStream_2 << byteArray;
         }
@@ -265,6 +266,7 @@ void MainWindow::connected_1()
     ui->lbl_is_connected_1->setText("Connected");
     ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     is_connected_1 = true;
+    ui->sl_brightness_1->setEnabled(true);
 }
 
 void MainWindow::disconnected_1()
@@ -273,6 +275,7 @@ void MainWindow::disconnected_1()
     ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
     is_connected_1 = false;
     connectThread->is_connected_1 = false;
+     ui->sl_brightness_1->setEnabled(false);
 }
 
 void MainWindow::connected_2()
@@ -280,6 +283,7 @@ void MainWindow::connected_2()
     ui->lbl_is_connected_2->setText("Connected");
     ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     is_connected_2 = true;
+     ui->sl_brightness_2->setEnabled(true);
 }
 
 void MainWindow::disconnected_2()
@@ -288,6 +292,7 @@ void MainWindow::disconnected_2()
     ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
     is_connected_2 = false;
     connectThread->is_connected_2 = false;
+     ui->sl_brightness_2->setEnabled(false);
 }
 
 void MainWindow::onConnexionStatusChanged_1()

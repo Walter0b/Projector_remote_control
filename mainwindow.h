@@ -11,7 +11,7 @@
 #include <QEasingCurve>
 #include "styles.h"
 #include <QFile>
-#include <QScrollBar>
+#include <QSlider>
 #include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
@@ -53,6 +53,7 @@ private slots:
 
     void on_Admin_next_button_clicked();
 
+
 private:
     Ui::MainWindow *ui;
 
@@ -66,7 +67,6 @@ private:
     QString host_1;
     QString host_2;
     ConnectThread *connectThread = nullptr;
-    QByteArray byteArray_1;
     QByteArray byteArray;
     int password = 500000;
     Styles *custom_style = new Styles;
@@ -79,7 +79,7 @@ private:
 
     // Functions
     void changeColorInActive(QPushButton *, QString);
-    void changeBrightness(QScrollBar *, QLabel *, int);
+    void changeBrightness(int);
     void BtnControl(QPushButton *, QPushButton *);
     void command(int, QString, QPushButton *);
     void onOff(int, QPushButton *);
