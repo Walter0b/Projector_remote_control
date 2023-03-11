@@ -120,7 +120,7 @@ border: none;
      <string notr="true">background: #101010;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
@@ -2910,7 +2910,6 @@ color: black;</string>
         <string>Admin</string>
        </property>
       </widget>
-      <zorder>P1_Admin_HDMI_Text_1</zorder>
       <zorder>P1_Admin_HDMI_Button_1</zorder>
       <zorder>P1_Admin_HDBaseT</zorder>
       <zorder>P1_Admin_DisplayPort_2</zorder>
@@ -2932,6 +2931,7 @@ color: black;</string>
       <zorder>label_32</zorder>
       <zorder>label_33</zorder>
       <zorder>label_9</zorder>
+      <zorder>P1_Admin_HDMI_Text_1</zorder>
      </widget>
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
