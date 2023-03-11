@@ -14,7 +14,8 @@ SOURCES += \
     mainwindow.cpp\
 
 HEADERS += \
-    connectthread.h \
+
+    connectthread.h\
     mainwindow.h \
     styles.h
 

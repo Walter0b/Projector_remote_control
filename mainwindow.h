@@ -66,10 +66,9 @@ private:
     bool powerState_2;
     // Functions
     void changeColorInActive(QPushButton *, QString);
-    void changeColorInActive2(QPushButton *, QLabel *);
     void changeBrightness(QScrollBar *, QLabel *, int);
     void BtnControl(QPushButton *, QPushButton *);
-    void command(int, QString);
+    void command(int, QString, QPushButton *);
     void onOff(int, QPushButton *);
     void connected_2();
     void disconnected_2();
