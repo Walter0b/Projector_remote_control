@@ -51,8 +51,9 @@ MainWindow::MainWindow(QWidget *parent)
         is_connected_1 = false;
         powerState_1 = false;
         //------------signal that the projector is offline-----//
-        ui->lbl_is_connected_1->setText("Not Connected");
-        ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+        this->ui->lbl_is_connected_1->setText("Not Connected");
+        this->ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+
     }
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 
