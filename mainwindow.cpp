@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
                 QStringList allDataFile_split = allDataFile.split('-');
                 host_1 = allDataFile_split[1];
                 host_2 = allDataFile_split[2];
-                ui->label_5->setText(host_1);
             }
         }
     }
@@ -246,25 +245,31 @@ void MainWindow::changeBrightness(QScrollBar *ScrollBar , QLabel *Label, int pr)
     }
 }
 
-void MainWindow::onOff(int prt)
+void MainWindow::onOff(int prt, QPushButton *button)
 {
+    QString color;
     if (tcpSocket_1->isOpen())
     {
         if (powerState_1)
         {
             powerState_1 = false;
             active_commandData = "0x02 0x01 0x00 0x00 0x00 0x03"; // On éteint
+            color = this->custom_style->Off;
+
         }
         else
         {
             powerState_1 = true;
             active_commandData = "0x02 0x00 0x00 0x00 0x00 0x02"; // On allume
+             color = this->custom_style->On;
         }
         // On envoie la commande
         if (prt == 1)
         {
+
             if (tcpSocket_1->isOpen())
             {
+                button->setStyleSheet(color);
                 byteArray = active_commandData.toUtf8();
                 socketStream_1 << byteArray;
             }
@@ -273,6 +278,7 @@ void MainWindow::onOff(int prt)
         {
             if (tcpSocket_2->isOpen())
             {
+                button->setStyleSheet(color);
                 byteArray = active_commandData.toUtf8();
                 socketStream_2 << byteArray;
             }
@@ -459,9 +465,9 @@ void MainWindow::on_password_lineEdit_cursorPositionChanged()
 
 void MainWindow::on_P1_On_Button_clicked()
 {
-    onOff(1);
+    onOff(1,ui->P1_On_Button);
 }
 void MainWindow::on_P2_On_Button_clicked()
 {
-    onOff(2);
+    onOff(2,ui->P2_On_Button);
 }

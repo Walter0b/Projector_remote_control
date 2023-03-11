@@ -73,7 +73,7 @@ private:
     ConnectThread *connectThread = nullptr;
     QByteArray byteArray_1;
     QByteArray byteArray;
-    void onOff(int );
+    void onOff(int,QPushButton *);
      void connected_2();
      void disconnected_2();
      void onConnexionStatusChanged_1();

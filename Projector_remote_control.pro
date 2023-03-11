@@ -12,12 +12,10 @@ SOURCES += \
     connectthread.cpp \
     main.cpp \
     mainwindow.cpp\
-    connectthread.cpp
 
 HEADERS += \
     connectthread.h \
     mainwindow.h \
-    connectthread.h\
     styles.h
 
 FORMS += \
