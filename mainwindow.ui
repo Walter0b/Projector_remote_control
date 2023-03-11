@@ -1652,7 +1652,6 @@ border-top-left-radius: 3px;
 border-top-right-radius: 3px;
 border-bottom-left-radius: 0px;
 border-bottom-right-radius: 0px;
-transition: all 0.5s ease-in-out;
 font-size: 13px;
 font-weight: 200;
 background-color:rgb(28, 26, 26);
