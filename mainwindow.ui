@@ -19,6 +19,81 @@
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+QMainWindow 
+#P1_Admin_HDMI_Button_1,
+#P1_Admin_HDMI_Button_2,
+#P2_Admin_HDMI_Button_1,
+#P2_Admin_HDMI_Button_2,
+#P1_HDMI_Button_1, 
+#P1_HDMI_Button_2, 
+#P2_HDMI_Button_1, 
+#P2_HDMI_Button_2 {
+       border-image: url(:HDMI.png);
+       max-height: 50px;   
+       min-height:61;
+       min-width:81;
+       border-radius: 8%;
+       border: none;
+}
+
+QMainWindow 
+#P1_Admin_DisplayPort_2,
+#P1_Admin_DisplayPort_1,
+#P2_Admin_DisplayPort_2,
+#P2_Admin_DisplayPort_1,
+#P1_DisplayPort_1, 
+#P1_DisplayPort_2, 
+#P2_DisplayPort_1, 
+#P2_DisplayPort_2 {
+border-image: url(:DisplayPort.png);
+       max-height: 50px;   
+       min-height:61;
+       min-width:81;
+       border-radius: 8%;
+       border: none;
+}
+
+QMainWindow 
+#P1_Admin_SDI_1, 
+#P1_Admin_SDI_2, 
+#P1_Admin_SDI_3, 
+#P1_Admin_SDI_4,
+#P2_Admin_SDI_1, 
+#P2_Admin_SDI_2, 
+#P2_Admin_SDI_3, 
+#P2_Admin_SDI_4,
+#P1_SDI_1, 
+#P1_SDI_2, 
+#P1_SDI_3, 
+#P1_SDI_4,
+#P2_SDI_1, 
+#P2_SDI_2, 
+#P2_SDI_3, 
+#P2_SDI_4{
+border-image: url(:SDI.svg);
+max-height: 50px;   
+min-height:61;
+min-width:81;
+border-radius: 8%;
+border: none;
+}
+
+
+QMainWindow #P1_Admin_HDBaseT, #P2_Admin_HDBaseT, #P1_HDBaseT, #P2_HDBaseT{
+border-image: url(:HDBaseT.png);
+max-height: 50px;   
+min-height:61;
+min-width:81;
+border-radius: 8%;
+border: none;
+}
+
+
+</string>
+  </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
   </property>
@@ -45,7 +120,7 @@
      <string notr="true">background: #101010;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
@@ -163,15 +238,16 @@ border-bottom: 2px solid white</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
+        <string notr="true">max-height: 50px;
 min-height:61;
 min-width:81;
-background-color: none;
-border-radius: 3px;
-border-image: url(:HDMI.png);
+background-color:rgb(46, 194, 126);
+border-radius: 8%;
 border: none;
 background-repeat: none;
-</string>
+color:black;
+text-align: center;
+right: 500px;</string>
        </property>
        <property name="text">
         <string/>
@@ -282,19 +358,14 @@ color: black;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:DisplacePort.png) ;
-  background-position: left center;
-border: none;
-background-repeat: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -363,28 +434,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">height:80px;
-max-width: 100px;
-background-color: none;
-border-radius: 8%;
-border: none;
-background-repeat: none;
-border-style: solid; 
-background-repeat: none;  
-border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
-background-repeat: no-repeat;
-background-attachment: fixed;
-
-
-
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -429,20 +486,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -493,17 +544,14 @@ background-repeat: none;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-image: url(:DisplacePort.png) ;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -594,20 +642,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;
-background-color: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -625,20 +667,14 @@ background-color: none;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-position:center;
-border-size :cover;
-background-color: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -683,20 +719,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-position:center;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -727,72 +757,6 @@ text-align:center;</string>
        </property>
        <property name="text">
         <string>SDI</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_HDMI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>35</x>
-         <y>140</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(46, 194, 126);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_DisplayPort_label_1">
-       <property name="geometry">
-        <rect>
-         <x>235</x>
-         <y>140</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_HDMI_label_2">
-       <property name="geometry">
-        <rect>
-         <x>135</x>
-         <y>140</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
       <widget class="QLabel" name="label_12">
@@ -838,147 +802,7 @@ color: black;</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-min-height:61;
-min-width:81;
-background-color: none;
-border-radius: 8%;
-border-image: url(:HDMI.png);
-border: none;
-background-repeat: none;
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_DisplayPort_label_2">
-       <property name="geometry">
-        <rect>
-         <x>35</x>
-         <y>210</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_SDI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>235</x>
-         <y>210</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_SDI_label_2">
-       <property name="geometry">
-        <rect>
-         <x>35</x>
-         <y>280</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_SDI_label_3">
-       <property name="geometry">
-        <rect>
-         <x>135</x>
-         <y>280</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_SDI_label_4">
-       <property name="geometry">
-        <rect>
-         <x>235</x>
-         <y>280</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_HDBaseT_label">
-       <property name="geometry">
-        <rect>
-         <x>135</x>
-         <y>210</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1017,29 +841,10 @@ content: 'Status';</string>
         <string>0</string>
        </property>
       </widget>
-      <zorder>P1_SDI_label_4</zorder>
-      <zorder>P1_SDI_label_2</zorder>
-      <zorder>P1_SDI_label_3</zorder>
-      <zorder>P1_SDI_label_1</zorder>
-      <zorder>P1_HDBaseT_label</zorder>
-      <zorder>P1_DisplayPort_label_2</zorder>
-      <zorder>P1_HDMI_label_2</zorder>
-      <zorder>P1_HDMI_label_1</zorder>
-      <zorder>P1_DisplayPort_label_1</zorder>
       <zorder>line</zorder>
       <zorder>sl_brightness_1</zorder>
-      <zorder>label_3</zorder>
       <zorder>line_3</zorder>
-      <zorder>label_16</zorder>
       <zorder>label</zorder>
-      <zorder>label_17</zorder>
-      <zorder>label_18</zorder>
-      <zorder>label_19</zorder>
-      <zorder>label_14</zorder>
-      <zorder>label_11</zorder>
-      <zorder>label_13</zorder>
-      <zorder>label_15</zorder>
-      <zorder>label_12</zorder>
       <zorder>P1_SDI_1</zorder>
       <zorder>P1_SDI_4</zorder>
       <zorder>P1_DisplayPort_1</zorder>
@@ -1052,6 +857,16 @@ content: 'Status';</string>
       <zorder>P1_DisplayPort_2</zorder>
       <zorder>lbl_is_connected_1</zorder>
       <zorder>lbl_brightness_1_val_1</zorder>
+      <zorder>label_16</zorder>
+      <zorder>label_13</zorder>
+      <zorder>label_11</zorder>
+      <zorder>label_17</zorder>
+      <zorder>label_14</zorder>
+      <zorder>label_18</zorder>
+      <zorder>label_19</zorder>
+      <zorder>label_15</zorder>
+      <zorder>label_12</zorder>
+      <zorder>label_3</zorder>
      </widget>
      <widget class="QPushButton" name="Admin_button">
       <property name="geometry">
@@ -1163,15 +978,7 @@ border-bottom: 2px solid white;</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-min-height:61;
-min-width:81;
-background-color: none;
-border-radius: 8%;
-border-image: url(:HDMI.png);
-border: none;
-background-repeat: none;
-</string>
+        <string notr="true">background-color:rgb(46, 194, 126);</string>
        </property>
        <property name="text">
         <string/>
@@ -1281,19 +1088,14 @@ color: black;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:DisplacePort.png) ;
-  background-position: left center;
-border: none;
-background-repeat: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1362,28 +1164,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">height:80px;
-max-width: 100px;
-background-color: none;
-border-radius: 8%;
-border: none;
-background-repeat: none;
-border-style: solid; 
-background-repeat: none;  
-border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-
-
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1428,20 +1216,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1492,17 +1274,14 @@ background-repeat: none;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-image: url(:DisplacePort.png) ;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1593,20 +1372,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;
-background-color: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1624,20 +1397,14 @@ background-color: none;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;
-background-color: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1682,20 +1449,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -1726,72 +1487,6 @@ text-align:center;</string>
        </property>
        <property name="text">
         <string>SDI</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_HDMI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>35</x>
-         <y>140</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(46, 194, 126);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_DisplayPort_label_1">
-       <property name="geometry">
-        <rect>
-         <x>235</x>
-         <y>140</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_HDMI_label_2">
-       <property name="geometry">
-        <rect>
-         <x>135</x>
-         <y>140</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
       <widget class="QLabel" name="label_28">
@@ -1837,147 +1532,7 @@ color: black;</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-min-height:61;
-min-width:81;
-background-color: none;
-border-radius: 8%;
-border-image: url(:HDMI.png);
-border: none;
-background-repeat: none;
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_DisplayPort_label_2">
-       <property name="geometry">
-        <rect>
-         <x>35</x>
-         <y>210</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_SDI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>235</x>
-         <y>210</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_SDI_label_2">
-       <property name="geometry">
-        <rect>
-         <x>35</x>
-         <y>280</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_SDI_label_3">
-       <property name="geometry">
-        <rect>
-         <x>135</x>
-         <y>280</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_SDI_label_4">
-       <property name="geometry">
-        <rect>
-         <x>235</x>
-         <y>280</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_HDBaseT_label">
-       <property name="geometry">
-        <rect>
-         <x>135</x>
-         <y>210</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2015,30 +1570,11 @@ background-repeat: none;</string>
         <string>0</string>
        </property>
       </widget>
-      <zorder>P2_DisplayPort_label_1</zorder>
-      <zorder>P2_DisplayPort_label_2</zorder>
-      <zorder>P2_SDI_label_4</zorder>
-      <zorder>P2_SDI_label_3</zorder>
-      <zorder>P2_HDMI_label_1</zorder>
-      <zorder>P2_SDI_label_1</zorder>
-      <zorder>P2_HDBaseT_label</zorder>
-      <zorder>P2_SDI_label_2</zorder>
       <zorder>line_2</zorder>
       <zorder>sl_brightness_2</zorder>
       <zorder>label_4</zorder>
       <zorder>line_4</zorder>
-      <zorder>label_20</zorder>
-      <zorder>label_21</zorder>
-      <zorder>label_22</zorder>
-      <zorder>label_23</zorder>
       <zorder>P2_SDI_1</zorder>
-      <zorder>label_24</zorder>
-      <zorder>label_2</zorder>
-      <zorder>label_25</zorder>
-      <zorder>label_26</zorder>
-      <zorder>label_27</zorder>
-      <zorder>P2_HDMI_label_2</zorder>
-      <zorder>label_28</zorder>
       <zorder>P2_SDI_2</zorder>
       <zorder>P2_HDMI_Button_1</zorder>
       <zorder>P2_On_Button</zorder>
@@ -2050,6 +1586,16 @@ background-repeat: none;</string>
       <zorder>P2_DisplayPort_1</zorder>
       <zorder>lbl_is_connected_2</zorder>
       <zorder>lbl_brightness_1_val_2</zorder>
+      <zorder>label_27</zorder>
+      <zorder>label_24</zorder>
+      <zorder>label_22</zorder>
+      <zorder>label_26</zorder>
+      <zorder>label_25</zorder>
+      <zorder>label_20</zorder>
+      <zorder>label_23</zorder>
+      <zorder>label_28</zorder>
+      <zorder>label_2</zorder>
+      <zorder>label_21</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
@@ -2151,7 +1697,7 @@ border-bottom: 2px solid gray;</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_14">
+      <widget class="QPushButton" name="Admin_next_button">
        <property name="geometry">
         <rect>
          <x>263</x>
@@ -2176,9 +1722,9 @@ border-radius: 3px;</string>
       <widget class="QLabel" name="incorrect_password">
        <property name="geometry">
         <rect>
-         <x>302</x>
-         <y>333</y>
-         <width>131</width>
+         <x>280</x>
+         <y>330</y>
+         <width>191</width>
          <height>20</height>
         </rect>
        </property>
@@ -2262,21 +1808,14 @@ border-bottom: 2px solid white;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-
-background-color: none;
-border-radius: 8%;
-border-image: url(:HDMI.png);
-border: none;
-background-repeat: none;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2341,19 +1880,14 @@ color: black;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:HDMI.png);
-border: none;
-background-repeat: none;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2395,19 +1929,14 @@ color: black;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:DisplacePort.png) ;
-    background-position: left center;
-border: none;
-background-repeat: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2416,7 +1945,7 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_40">
        <property name="geometry">
         <rect>
-         <x>246</x>
+         <x>240</x>
          <y>160</y>
          <width>81</width>
          <height>21</height>
@@ -2477,29 +2006,14 @@ text-align:center;
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">height:80px;
-max-width: 100px;
-background-color: none;
-border-radius: 8%;
-border: none;
-background-repeat: none;
-
-border-style: solid; 
-background-repeat: none;  
-border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-
-
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2544,19 +2058,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2574,17 +2083,14 @@ border-size :cover;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-image: url(:DisplacePort.png) ;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2675,19 +2181,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2705,20 +2206,14 @@ border-size :cover;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2763,19 +2258,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -2808,187 +2298,11 @@ text-align:center;</string>
         <string>SDI</string>
        </property>
       </widget>
-      <widget class="QLabel" name="P2_Admin_SDI_label_2">
-       <property name="geometry">
-        <rect>
-         <x>36</x>
-         <y>260</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_Admin_HDMI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>36</x>
-         <y>120</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_Admin_HDBaseT_label">
-       <property name="geometry">
-        <rect>
-         <x>136</x>
-         <y>190</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_Admin_DisplayPort_label_2">
-       <property name="geometry">
-        <rect>
-         <x>36</x>
-         <y>190</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_Admin_SDI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>236</x>
-         <y>190</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
       <widget class="QLabel" name="P2_Admin_HDMI_label_2">
        <property name="geometry">
         <rect>
          <x>136</x>
          <y>120</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_Admin_DisplayPort_label_1">
-       <property name="geometry">
-        <rect>
-         <x>236</x>
-         <y>120</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_Admin_SDI_label_4">
-       <property name="geometry">
-        <rect>
-         <x>236</x>
-         <y>260</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P2_Admin_SDI_label_3">
-       <property name="geometry">
-        <rect>
-         <x>136</x>
-         <y>260</y>
          <width>81</width>
          <height>61</height>
         </rect>
@@ -3022,26 +2336,9 @@ background-repeat: none;</string>
         <string>Admin</string>
        </property>
       </widget>
-      <zorder>P2_Admin_SDI_label_3</zorder>
-      <zorder>P2_Admin_DisplayPort_label_1</zorder>
-      <zorder>P2_Admin_DisplayPort_label_2</zorder>
-      <zorder>P2_Admin_SDI_label_4</zorder>
-      <zorder>P2_Admin_SDI_label_2</zorder>
-      <zorder>P2_Admin_HDBaseT_label</zorder>
-      <zorder>P2_Admin_HDMI_label_1</zorder>
       <zorder>P2_Admin_HDMI_label_2</zorder>
-      <zorder>P2_Admin_SDI_label_1</zorder>
       <zorder>line_7</zorder>
       <zorder>line_8</zorder>
-      <zorder>label_38</zorder>
-      <zorder>label_39</zorder>
-      <zorder>label_40</zorder>
-      <zorder>label_8</zorder>
-      <zorder>label_42</zorder>
-      <zorder>label_46</zorder>
-      <zorder>label_43</zorder>
-      <zorder>label_44</zorder>
-      <zorder>label_41</zorder>
       <zorder>P2_Admin_DisplayPort_1</zorder>
       <zorder>P2_Admin_HDMI_Button_2</zorder>
       <zorder>P2_Admin_HDBaseT</zorder>
@@ -3050,9 +2347,18 @@ background-repeat: none;</string>
       <zorder>P2_Admin_SDI_1</zorder>
       <zorder>P2_Admin_SDI_2</zorder>
       <zorder>P2_Admin_DisplayPort_2</zorder>
-      <zorder>label_45</zorder>
       <zorder>P2_Admin_SDI_3</zorder>
+      <zorder>label_46</zorder>
       <zorder>label_10</zorder>
+      <zorder>label_8</zorder>
+      <zorder>label_42</zorder>
+      <zorder>label_43</zorder>
+      <zorder>label_45</zorder>
+      <zorder>label_41</zorder>
+      <zorder>label_40</zorder>
+      <zorder>label_44</zorder>
+      <zorder>label_39</zorder>
+      <zorder>label_38</zorder>
      </widget>
      <widget class="QFrame" name="frame_6">
       <property name="geometry">
@@ -3120,15 +2426,7 @@ border-bottom: 2px solid white;</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-min-height:61;
-min-width:81;
-background-color: none;
-border-radius: 8%;
-border-image: url(:HDMI.png);
-border: none;
-background-repeat: none;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3193,19 +2491,14 @@ color: black;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-border-image: url(:DisplacePort.png) ;
-  background-position: left center;
-border: none;
-background-repeat: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3214,9 +2507,9 @@ background-repeat: none;</string>
       <widget class="QLabel" name="label_30">
        <property name="geometry">
         <rect>
-         <x>244</x>
+         <x>230</x>
          <y>160</y>
-         <width>71</width>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -3229,7 +2522,11 @@ background-repeat: none;</string>
        <property name="styleSheet">
         <string notr="true">background-color: none;
 font-weight:bold;
-color: black;</string>
+color: black;
+margin-top:5px;
+margin-left:2px;
+font-size: 13px;
+text-align:center;</string>
        </property>
        <property name="text">
         <string>DIsplayPort</string>
@@ -3274,28 +2571,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">height:80px;
-max-width: 100px;
-background-color: none;
-border-radius: 8%;
-border: none;
-background-repeat: none;
-border-style: solid; 
-background-repeat: none;  
-border-image: url(:/RJ-45.png)  0 0 0 0 stretch stretch;;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-
-
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3340,20 +2623,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3371,17 +2648,14 @@ border-size :cover;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: none;
-border-radius: 8%;
-image: url(:DisplacePort.png) ;
-</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3472,20 +2746,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;
-background-color: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3503,20 +2771,14 @@ background-color: none;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;
-background-color: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3561,20 +2823,14 @@ text-align:center;</string>
        <property name="minimumSize">
         <size>
          <width>81</width>
-         <height>0</height>
+         <height>61</height>
         </size>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-background-color: none;
-border-radius: 8%;
-border-image: url(:sdi.svg);
-border: none;
-background-possition:center;
-border-size :cover;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3605,72 +2861,6 @@ text-align:center;</string>
        </property>
        <property name="text">
         <string>SDI</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_HDMI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>34</x>
-         <y>120</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_DisplayPort_label_1">
-       <property name="geometry">
-        <rect>
-         <x>234</x>
-         <y>120</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_HDMI_label_2">
-       <property name="geometry">
-        <rect>
-         <x>134</x>
-         <y>120</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
       <widget class="QLabel" name="label_37">
@@ -3716,147 +2906,7 @@ color: black;</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">
-min-height:61;
-min-width:81;
-background-color: none;
-border-radius: 8%;
-border-image: url(:HDMI.png);
-border: none;
-background-repeat: none;
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_DisplayPort_label_2">
-       <property name="geometry">
-        <rect>
-         <x>34</x>
-         <y>190</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_SDI_label_1">
-       <property name="geometry">
-        <rect>
-         <x>234</x>
-         <y>190</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_SDI_label_2">
-       <property name="geometry">
-        <rect>
-         <x>34</x>
-         <y>260</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_SDI_label_3">
-       <property name="geometry">
-        <rect>
-         <x>134</x>
-         <y>260</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_SDI_label_4">
-       <property name="geometry">
-        <rect>
-         <x>234</x>
-         <y>260</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="P1_Admin_HDBaseT_label">
-       <property name="geometry">
-        <rect>
-         <x>134</x>
-         <y>190</y>
-         <width>81</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">max-height: 50px;
-min-height:61;
-min-width:81;
-background-color:rgb(255, 120, 0);
-border-radius: 8%;
-border: none;
-background-repeat: none;</string>
+        <string notr="true">background-color:rgb(255, 120, 0);</string>
        </property>
        <property name="text">
         <string/>
@@ -3878,27 +2928,7 @@ background-repeat: none;</string>
         <string>Admin</string>
        </property>
       </widget>
-      <zorder>P1_Admin_SDI_label_3</zorder>
-      <zorder>P1_Admin_SDI_label_2</zorder>
-      <zorder>P1_Admin_SDI_label_4</zorder>
-      <zorder>P1_Admin_SDI_label_1</zorder>
-      <zorder>P1_Admin_HDBaseT_label</zorder>
-      <zorder>P1_Admin_DisplayPort_label_2</zorder>
-      <zorder>P1_Admin_DisplayPort_label_1</zorder>
-      <zorder>P1_Admin_HDMI_label_1</zorder>
-      <zorder>line_5</zorder>
-      <zorder>line_6</zorder>
       <zorder>P1_Admin_HDMI_Text_1</zorder>
-      <zorder>label_31</zorder>
-      <zorder>label_32</zorder>
-      <zorder>label_33</zorder>
-      <zorder>label_6</zorder>
-      <zorder>label_34</zorder>
-      <zorder>label_35</zorder>
-      <zorder>label_36</zorder>
-      <zorder>P1_Admin_HDMI_label_2</zorder>
-      <zorder>label_37</zorder>
-      <zorder>label_30</zorder>
       <zorder>P1_Admin_HDMI_Button_1</zorder>
       <zorder>P1_Admin_HDBaseT</zorder>
       <zorder>P1_Admin_DisplayPort_2</zorder>
@@ -3908,6 +2938,17 @@ background-repeat: none;</string>
       <zorder>P1_Admin_DisplayPort_1</zorder>
       <zorder>P1_Admin_SDI_3</zorder>
       <zorder>P1_Admin_HDMI_Button_2</zorder>
+      <zorder>line_5</zorder>
+      <zorder>label_6</zorder>
+      <zorder>label_36</zorder>
+      <zorder>label_34</zorder>
+      <zorder>label_37</zorder>
+      <zorder>label_35</zorder>
+      <zorder>line_6</zorder>
+      <zorder>label_31</zorder>
+      <zorder>label_30</zorder>
+      <zorder>label_32</zorder>
+      <zorder>label_33</zorder>
       <zorder>label_9</zorder>
      </widget>
      <widget class="QFrame" name="frame_2">
