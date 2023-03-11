@@ -113,7 +113,7 @@ MainWindow::MainWindow(QWidget *parent)
     //++++++++++++++++++++++++++++++++++++++++++++++ADMIN     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
     QObject::connect(this->ui->P1_Admin_HDMI_Button_1, &QPushButton::clicked, this, [=]()
-                     { this->BtnControl(this->ui->P1_HDMI_Button_1, this->ui->P1_HDMI_Button_1); });
+                     { this->BtnControl(this->ui->P1_HDMI_Button_1, this->ui->P1_Admin_HDMI_Button_1); });
     QObject::connect(this->ui->P1_Admin_HDMI_Button_2, &QPushButton::clicked, this, [=]()
                      { this->BtnControl(this->ui->P1_HDMI_Button_2, this->ui->P1_Admin_HDMI_Button_2); });
     QObject::connect(this->ui->P1_Admin_DisplayPort_1, &QPushButton::clicked, this, [=]()
@@ -137,7 +137,7 @@ MainWindow::MainWindow(QWidget *parent)
                      { this->BtnControl(this->ui->P2_HDMI_Button_1, this->ui->P2_Admin_HDMI_Button_1); });
     QObject::connect(this->ui->P2_Admin_HDMI_Button_2, &QPushButton::clicked, this, [=]()
                      { this->BtnControl(this->ui->P2_HDMI_Button_2, this->ui->P2_Admin_HDMI_Button_2); });
-    QObject::connect(this->ui->P1_Admin_DisplayPort_1, &QPushButton::clicked, this, [=]()
+    QObject::connect(this->ui->P2_Admin_DisplayPort_1, &QPushButton::clicked, this, [=]()
                      { this->BtnControl(this->ui->P2_DisplayPort_1, this->ui->P2_Admin_DisplayPort_1); });
     QObject::connect(this->ui->P2_Admin_DisplayPort_2, &QPushButton::clicked, this, [=]()
                      { this->BtnControl(this->ui->P2_DisplayPort_2, this->ui->P2_Admin_DisplayPort_2); });
