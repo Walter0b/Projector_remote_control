@@ -16,14 +16,34 @@ MainWindow::MainWindow(QWidget *parent)
     this->ui->stackedWidget->setCurrentIndex(0);
     this->ui->incorrect_password->setText("");
 
-    this->ui->lbl_is_connected_1->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    QFile f{":/utils.txt"};
+    QString allDataFile = "";
+    if (f.exists())
+    {
+        if (f.open(QIODevice::ReadOnly))
+        {
+            QTextStream in{&f};
+            if (!in.atEnd())
+            {
+                allDataFile = in.readLine();
+                QStringList allDataFile_split = allDataFile.split('-');
+                host_1 = allDataFile_split[1];
+                host_2 = allDataFile_split[2];
+            }
+        }
+    }
+
+    ui->lbl_is_connected_1->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     tcpSocket_1->connectToHost(host_1, 7142);
-    if(tcpSocket_1->waitForConnected()){
+    if (tcpSocket_1->waitForConnected())
+    {
         is_connected_1 = true;
         powerState_1 = true;
-        this->ui->lbl_is_connected_1->setText("Connected");
-        this->ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
-    }else{
+        ui->lbl_is_connected_1->setText("Connected");
+        ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
+    }
+    else
+    {
         is_connected_1 = false;
         powerState_1 = false;
         this->ui->lbl_is_connected_1->setText("Not Connected");
@@ -33,12 +53,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->ui->lbl_is_connected_2->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     tcpSocket_2->connectToHost(host_2, 7142);
-    if(tcpSocket_2->waitForConnected()){
+    if (tcpSocket_2->waitForConnected())
+    {
         is_connected_2 = true;
         powerState_2 = true;
         this->ui->lbl_is_connected_2->setText("Connected");
         this->ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
-    }else{
+    }
+    else
+    {
         is_connected_2 = false;
         powerState_2 = false;
         this->ui->lbl_is_connected_2->setText("Not Connected");
@@ -55,7 +78,6 @@ MainWindow::MainWindow(QWidget *parent)
     connectThread->start();
     connect(connectThread, &ConnectThread::connexionStatusChanged_1, this, &MainWindow::onConnexionStatusChanged_1);
     connect(connectThread, &ConnectThread::connexionStatusChanged_2, this, &MainWindow::onConnexionStatusChanged_2);
-
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -77,92 +99,34 @@ MainWindow::MainWindow(QWidget *parent)
                      {this->changeColorInActive(this->ui->P1_SDI_3, this->ui->P1_SDI_label_3, "P1" ); this->command(8,  "P1"); });
     QObject::connect(this->ui->P1_SDI_4, &QPushButton::clicked, this, [=]()
                      {this->changeColorInActive(this->ui->P1_SDI_4, this->ui->P1_SDI_label_4, "P1" ); this->command(9,  "P1"); });
-    //add slider
-    Active_btn = this->ui->P1_HDMI_Button_1;
-    btn_label = this->ui->P1_HDMI_label_1;
+    QObject::connect(this->ui->sl_brightness_1, &QScrollBar::valueChanged, this, [=]()
+                     { this->changeBrightness(this->ui->sl_brightness_1, this->ui->lbl_brightness_1_val_1, 1); });
+
+    Active_btn = ui->P1_HDMI_Button_1;
+    btn_label = ui->P1_HDMI_label_1;
 
     //++++++++++++++++++++++++++++++++++++++++++++++OPERATOR     projecotr 2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-    QObject::connect(
-        this->ui->P2_HDMI_Button_1,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_HDMI_Button_1, this->ui->P2_HDMI_label_1,  "P2");
-            this->command(1, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_HDMI_Button_2,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_HDMI_Button_2, this->ui->P2_HDMI_label_2, "P2");
-            this->command(2, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_HDBaseT, &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_HDBaseT, this->ui->P2_HDBaseT_label, "P2");
-            this->command(3, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_DisplayPort_1,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_DisplayPort_1, this->ui->P2_DisplayPort_label_1, "P2");
-            this->command(4, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_DisplayPort_2,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_DisplayPort_2, this->ui->P2_DisplayPort_label_2, "P2");
-            this->command(5, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_SDI_1,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_SDI_1, this->ui->P2_SDI_label_1, "P2");
-            this->command(6, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_SDI_2,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_SDI_2, this->ui->P2_SDI_label_2, "P2");
-            this->command(7, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_SDI_3,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_SDI_3, this->ui->P2_SDI_label_3, "P2");
-            this->command(8, "P2");
-        }
-    );
-    QObject::connect(
-        this->ui->P2_SDI_4,
-        &QPushButton::clicked,
-        this,
-        [=](){
-            this->changeColorInActive(this->ui->P2_SDI_4, this->ui->P2_SDI_label_4, "P2");
-            this->command(9, "P2");
-        }
-    );
-    //add slider
+
+    QObject::connect(this->ui->P2_HDMI_Button_1, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_HDMI_Button_1, this->ui->P2_HDMI_label_1,  "P2"); this->command(1, "P2"); });
+    QObject::connect(this->ui->P2_HDMI_Button_2, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_HDMI_Button_2, this->ui->P2_HDMI_label_2, "P2"); this->command(2, "P2"); });
+    QObject::connect(this->ui->P2_HDBaseT, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_HDBaseT, this->ui->P2_HDBaseT_label, "P2"); this->command(3, "P2"); });
+    QObject::connect(this->ui->P2_DisplayPort_1, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_DisplayPort_1, this->ui->P2_DisplayPort_label_1, "P2"); this->command(4, "P2"); });
+    QObject::connect(this->ui->P2_DisplayPort_2, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_DisplayPort_2, this->ui->P2_DisplayPort_label_2, "P2"); this->command(5, "P2"); });
+    QObject::connect(this->ui->P2_SDI_1, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_SDI_1, this->ui->P2_SDI_label_1, "P2"); this->command(6, "P2"); });
+    QObject::connect(this->ui->P2_SDI_2, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_SDI_2, this->ui->P2_SDI_label_2, "P2"); this->command(7, "P2"); });
+    QObject::connect(this->ui->P2_SDI_3, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_SDI_3, this->ui->P2_SDI_label_3, "P2"); this->command(8, "P2"); });
+    QObject::connect(this->ui->P2_SDI_4, &QPushButton::clicked, this, [=]()
+                     {this->changeColorInActive(this->ui->P2_SDI_4, this->ui->P2_SDI_label_4, "P2"); this->command(9, "P2"); });
+    QObject::connect(this->ui->sl_brightness_2, &QScrollBar::valueChanged, this, [=]()
+                     { this->changeBrightness(this->ui->sl_brightness_2, this->ui->lbl_brightness_1_val_2, 2); });
     //++++++++++++++++++++++++++++++++++++++++++++++ADMIN     projecotr 1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
     QObject::connect(this->ui->P1_Admin_HDMI_Button_1, &QPushButton::clicked, this, [=]()
@@ -211,10 +175,10 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    if(tcpSocket_1->isOpen())
-       tcpSocket_1->close();
-    if(tcpSocket_2->isOpen())
-       tcpSocket_2->close();
+    if (tcpSocket_1->isOpen())
+        tcpSocket_1->close();
+    if (tcpSocket_2->isOpen())
+        tcpSocket_2->close();
     connectThread->kill = true;
     delete this->Active_btn;
     delete this->btn_label;
@@ -244,43 +208,73 @@ void MainWindow::changeColorInActive(QPushButton *_btn, QLabel *lab, QString prt
         Active_btn2 = _btn;
     }
 }
-void MainWindow::changeBrightness()
+
+void MainWindow::changeBrightness(QScrollBar *ScrollBar , QLabel *Label, int pr)
 {
-    int val = ui->sl_brightness_1->value();
-    this->ui->lbl_brightness_1_val->setText(QString::number(val));
-    if(tcpSocket_1->isOpen())
+    int val = ScrollBar ->value();
+    Label->setText(QString::number(val));
+    QChar fillChar = u'0';
+    QString hexvalue = tr("%1").arg(val, 4, 16, fillChar).toUpper();
+    bool ok;
+    QString lowDigits = hexvalue.last(2);
+    QString highDigits = hexvalue.first(2);
+
+    auto cks_int = 279; // La somme entière des premiers bits
+    cks_int = cks_int + lowDigits.toInt(&ok, 16) + highDigits.toInt(&ok, 16);
+
+    QString cks = tr("%1").arg(cks_int, 2, 16, fillChar).toUpper();
+    cks = cks.last(2);
+    // On fait la requete pour changer la luminosité
+    active_commandData = "0x03 0x10 0x00 0x00 0x05 0x00 0xFF 0x00 0x" + lowDigits + " 0x" + highDigits + " 0x" + cks;
+    if (pr == 1)
     {
-        QChar fillChar = u'0';
-        QString hexvalue = tr("%1").arg(val, 4, 16, fillChar).toUpper();
-        bool ok;
-        QString lowDigits = hexvalue.last(2);
-        QString highDigits = hexvalue.first(2);
-
-        auto cks_int = 279; // La somme entière des premiers bits
-        cks_int = cks_int + lowDigits.toInt(&ok, 16) + highDigits.toInt(&ok, 16);
-
-        QString cks = tr("%1").arg(cks_int, 2, 16, fillChar).toUpper();
-        cks = cks.last(2);
-        // On fait la requete pour changer la luminosité
-        active_commandData = "0x03 0x10 0x00 0x00 0x05 0x00 0xFF 0x00 0x" + lowDigits + " 0x" + highDigits + " 0x" + cks;
-        byteArray = active_commandData.toUtf8();
-        socketStream << byteArray;
+        if (tcpSocket_1->isOpen())
+        {
+            byteArray = active_commandData.toUtf8();
+            socketStream_1 << byteArray;
+        }
+    }
+    else
+    {
+        if (tcpSocket_2->isOpen())
+        {
+            byteArray = active_commandData.toUtf8();
+            socketStream_2 << byteArray;
+        }
     }
 }
-void MainWindow::onOff_1()
+
+void MainWindow::onOff(int prt)
 {
-    if(tcpSocket_1->isOpen())
+    if (tcpSocket_1->isOpen())
     {
-        if(powerState_1){
+        if (powerState_1)
+        {
             powerState_1 = false;
-            active_commandData = "0x02 0x01 0x00 0x00 0x00 0x03"; //On éteint
-        }else{
+            active_commandData = "0x02 0x01 0x00 0x00 0x00 0x03"; // On éteint
+        }
+        else
+        {
             powerState_1 = true;
             active_commandData = "0x02 0x00 0x00 0x00 0x00 0x02"; // On allume
         }
         // On envoie la commande
-        byteArray_1 = active_commandData.toUtf8();
-        socketStream_1 << byteArray_1;
+        if (prt == 1)
+        {
+            if (tcpSocket_1->isOpen())
+            {
+                byteArray = active_commandData.toUtf8();
+                socketStream_1 << byteArray;
+            }
+        }
+        else if (prt == 2)
+        {
+            if (tcpSocket_2->isOpen())
+            {
+                byteArray = active_commandData.toUtf8();
+                socketStream_2 << byteArray;
+            }
+        }
     }
 }
 
@@ -318,7 +312,8 @@ void MainWindow::onConnexionStatusChanged_1()
 {
     tcpSocket_1->abort();
     tcpSocket_1->connectToHost(host_1, 7142);
-    if(tcpSocket_1->waitForConnected()){
+    if (tcpSocket_1->waitForConnected())
+    {
         is_connected_1 = true;
         powerState_1 = true;
         this->ui->lbl_is_connected_1->setText("Connected");
@@ -331,7 +326,8 @@ void MainWindow::onConnexionStatusChanged_2()
 {
     tcpSocket_2->abort();
     tcpSocket_2->connectToHost(host_2, 7142);
-    if(tcpSocket_2->waitForConnected()){
+    if (tcpSocket_2->waitForConnected())
+    {
         is_connected_2 = true;
         powerState_2 = true;
         this->ui->lbl_is_connected_2->setText("Connected");
@@ -339,7 +335,6 @@ void MainWindow::onConnexionStatusChanged_2()
     }
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
 }
-
 
 void MainWindow::BtnControl(QPushButton *btn, QLabel *label, QLabel *Selflabel)
 {
@@ -400,7 +395,7 @@ void MainWindow::on_pushButton_13_clicked()
     this->ui->stackedWidget->setCurrentIndex(1);
 }
 /*method to send projector command for a clicked button*/
-void MainWindow::command(int btn_id, QString prt )
+void MainWindow::command(int btn_id, QString prt)
 {
     switch (btn_id)
     {
@@ -433,7 +428,8 @@ void MainWindow::command(int btn_id, QString prt )
     default:
         break;
     }
-    if (prt == "P1"){
+    if (prt == "P1")
+    {
         // On envoie la commande
         byteArray = active_commandData.toUtf8();
         socketStream_1 << byteArray;
@@ -454,3 +450,11 @@ void MainWindow::on_password_lineEdit_cursorPositionChanged()
     this->ui->incorrect_password->setText("");
 }
 
+void MainWindow::on_P1_On_Button_clicked()
+{
+    onOff(1);
+}
+void MainWindow::on_P2_On_Button_clicked()
+{
+    onOff(2);
+}

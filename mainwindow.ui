@@ -1001,7 +1001,7 @@ content: 'Status';</string>
         <string>connection status</string>
        </property>
       </widget>
-      <widget class="QLabel" name="lbl_brightness_1_val">
+      <widget class="QLabel" name="lbl_brightness_1_val_1">
        <property name="geometry">
         <rect>
          <x>291</x>
@@ -1014,7 +1014,7 @@ content: 'Status';</string>
         <string notr="true">color: white;</string>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>0</string>
        </property>
       </widget>
       <zorder>P1_SDI_label_4</zorder>
@@ -1051,7 +1051,7 @@ content: 'Status';</string>
       <zorder>P1_SDI_3</zorder>
       <zorder>P1_DisplayPort_2</zorder>
       <zorder>lbl_is_connected_1</zorder>
-      <zorder>lbl_brightness_1_val</zorder>
+      <zorder>lbl_brightness_1_val_1</zorder>
      </widget>
      <widget class="QPushButton" name="Admin_button">
       <property name="geometry">
@@ -2012,7 +2012,7 @@ background-repeat: none;</string>
         <string notr="true">color: white;</string>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>0</string>
        </property>
       </widget>
       <zorder>P2_DisplayPort_label_1</zorder>

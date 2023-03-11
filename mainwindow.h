@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include <connectthread.h>
+
+#include "connectthread.h"
 #include "qpushbutton.h"
 #include "ui_mainwindow.h"
 #include <iostream>
@@ -9,6 +10,8 @@
 #include <QPropertyAnimation>
 #include <QEasingCurve>
 #include "styles.h"
+#include <QFile>
+#include <QScrollBar>
 #include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
@@ -32,6 +35,8 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_13_clicked();
     void on_password_lineEdit_cursorPositionChanged();
+    void on_P1_On_Button_clicked();
+    void on_P2_On_Button_clicked();
 private:
     Ui::MainWindow *ui;
     QLabel *btn_label = new QLabel("");
@@ -39,22 +44,21 @@ private:
     QLabel *btn_label2 = new QLabel("");
     QPushButton *Active_btn2;
     //--------------------------Check-----------------//
-    QString active_commandData;
+    QString active_commandData,passwords ;
     QTcpSocket *tcpSocket_1 = nullptr;
     QTcpSocket *tcpSocket_2 = nullptr;
     QDataStream socketStream_1;
-    QDataStream socketStream_2,socketStream;
+    QDataStream socketStream_2;
     bool is_connected_1;
     bool is_connected_2;
     bool powerState_1;
     bool powerState_2;
     QString host_1;
     QString host_2;
+
     ConnectThread *connectThread = nullptr;
-    QByteArray byteArray_1;
     QByteArray byteArray;
-    void onOff_1();
-    void onOff_2();
+    void onOff(int );
     void connected_2();
     void disconnected_2();
     void onConnexionStatusChanged_1();
@@ -65,7 +69,7 @@ private:
     //QPushButton *Disable_btn;
     void changeColorInActive(QPushButton*, QLabel*, QString);
     void changeColorInActive2(QPushButton*, QLabel*);
-    void changeBrightness();
+    void changeBrightness(QScrollBar *, QLabel *, int);
     void BtnControl(QPushButton*, QLabel*, QLabel*);
     QVector<QPushButton*> ::Iterator viterator;
     QVector <QPushButton*> AllBtn= {
