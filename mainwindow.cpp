@@ -45,14 +45,16 @@ MainWindow::MainWindow(QWidget *parent)
         powerState_1 = true;
         ui->lbl_is_connected_1->setText("Connected");
         ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
+        this->ui->sl_brightness_1->setEnabled(true);
     }
     else
     {
         is_connected_1 = false;
         powerState_1 = false;
         //------------signal that the projector is offline-----//
-        ui->lbl_is_connected_1->setText("Not Connected");
-        ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+        this->ui->lbl_is_connected_1->setText("Not Connected");
+        this->ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
+        this->ui->sl_brightness_1->setEnabled(false);
     }
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 
@@ -64,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
         powerState_2 = true;
         ui->lbl_is_connected_2->setText("Connected");
         ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+        this->ui->sl_brightness_2->setEnabled(true);
     }
     else
     {
@@ -71,7 +74,7 @@ MainWindow::MainWindow(QWidget *parent)
         powerState_2 = false;
         ui->lbl_is_connected_2->setText("Not Connected");
         ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
-
+        this->ui->sl_brightness_2->setEnabled(false);
     }
 
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
@@ -266,12 +269,13 @@ void MainWindow::connected_1()
     ui->lbl_is_connected_1->setText("Connected");
     ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     is_connected_1 = true;
-    ui->sl_brightness_1->setEnabled(true);
+    this->ui->sl_brightness_1->setEnabled(true);
 }
 
 void MainWindow::disconnected_1()
 {
     ui->lbl_is_connected_1->setText("Not Connected");
+    this->ui->sl_brightness_1->setEnabled(false);
     ui->lbl_is_connected_1->setStyleSheet("color:red; font-size:15px;");
     is_connected_1 = false;
     connectThread->is_connected_1 = false;
@@ -283,7 +287,7 @@ void MainWindow::connected_2()
     ui->lbl_is_connected_2->setText("Connected");
     ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
     is_connected_2 = true;
-     ui->sl_brightness_2->setEnabled(true);
+    this->ui->sl_brightness_2->setEnabled(true);
 }
 
 void MainWindow::disconnected_2()
@@ -292,7 +296,7 @@ void MainWindow::disconnected_2()
     ui->lbl_is_connected_2->setStyleSheet("color:red; font-size:15px;");
     is_connected_2 = false;
     connectThread->is_connected_2 = false;
-     ui->sl_brightness_2->setEnabled(false);
+    this->ui->sl_brightness_2->setEnabled(false);
 }
 
 void MainWindow::onConnexionStatusChanged_1()
@@ -304,8 +308,11 @@ void MainWindow::onConnexionStatusChanged_1()
         is_connected_1 = true;
         powerState_1 = true;
         ui->lbl_is_connected_1->setText("Connected");
+        this->ui->sl_brightness_1->setEnabled(true);
         ui->lbl_is_connected_1->setStyleSheet("color:green; font-size:15px;");
     }
+    else
+        this->ui->sl_brightness_1->setEnabled(false);
     connect(tcpSocket_1, &QTcpSocket::disconnected, this, &MainWindow::disconnected_1);
 }
 
@@ -319,7 +326,10 @@ void MainWindow::onConnexionStatusChanged_2()
         powerState_2 = true;
         ui->lbl_is_connected_2->setText("Connected");
         ui->lbl_is_connected_2->setStyleSheet("color:green; font-size:15px;");
+        this->ui->sl_brightness_2->setEnabled(true);
     }
+    else
+        this->ui->sl_brightness_2->setEnabled(false);
     connect(tcpSocket_2, &QTcpSocket::disconnected, this, &MainWindow::disconnected_2);
 }
 
@@ -420,6 +430,7 @@ void MainWindow::command(int btn_id, QString prt,QPushButton *btn)
         break;
     }
     if(prt == "P1" && is_connected_1 && tcpSocket_1->isOpen() ){
+        
         changeColorInActive(btn,"P1");
         // On envoie la commande
         byteArray = active_commandData.toUtf8();
