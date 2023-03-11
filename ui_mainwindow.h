@@ -16,7 +16,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollBar>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QWidget>
 
@@ -34,7 +34,6 @@ public:
     QFrame *frame_4;
     QFrame *line;
     QPushButton *P1_HDMI_Button_1;
-    QScrollBar *sl_brightness_1;
     QLabel *label_3;
     QFrame *line_3;
     QLabel *label_11;
@@ -58,12 +57,12 @@ public:
     QPushButton *P1_HDMI_Button_2;
     QLabel *lbl_is_connected_1;
     QLabel *lbl_brightness_1_val_1;
+    QSlider *sl_brightness_1;
     QPushButton *Admin_button;
     QPushButton *Sleep_Button;
     QFrame *frame_5;
     QFrame *line_2;
     QPushButton *P2_HDMI_Button_1;
-    QScrollBar *sl_brightness_2;
     QLabel *label_4;
     QFrame *line_4;
     QLabel *label_20;
@@ -87,6 +86,7 @@ public:
     QPushButton *P2_HDMI_Button_2;
     QLabel *lbl_is_connected_2;
     QLabel *lbl_brightness_1_val_2;
+    QSlider *sl_brightness_2;
     QWidget *page_3;
     QFrame *frame_3;
     QPushButton *pushButton_13;
@@ -289,14 +289,6 @@ public:
 "color:black;\n"
 "text-align: center;\n"
 "right: 500px;"));
-        sl_brightness_1 = new QScrollBar(frame_4);
-        sl_brightness_1->setObjectName(QString::fromUtf8("sl_brightness_1"));
-        sl_brightness_1->setGeometry(QRect(107, 384, 160, 16));
-        sl_brightness_1->setMinimumSize(QSize(160, 0));
-        sl_brightness_1->setStyleSheet(QString::fromUtf8("color: white;\n"
-"background-color:rgba(53, 53, 53, 0.8);\n"
-""));
-        sl_brightness_1->setOrientation(Qt::Horizontal);
         label_3 = new QLabel(frame_4);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(17, 376, 81, 31));
@@ -469,8 +461,12 @@ public:
         lbl_brightness_1_val_1->setObjectName(QString::fromUtf8("lbl_brightness_1_val_1"));
         lbl_brightness_1_val_1->setGeometry(QRect(291, 382, 41, 21));
         lbl_brightness_1_val_1->setStyleSheet(QString::fromUtf8("color: white;"));
+        sl_brightness_1 = new QSlider(frame_4);
+        sl_brightness_1->setObjectName(QString::fromUtf8("sl_brightness_1"));
+        sl_brightness_1->setGeometry(QRect(100, 390, 160, 16));
+        sl_brightness_1->setStyleSheet(QString::fromUtf8(""));
+        sl_brightness_1->setOrientation(Qt::Horizontal);
         line->raise();
-        sl_brightness_1->raise();
         line_3->raise();
         label->raise();
         P1_SDI_1->raise();
@@ -495,6 +491,7 @@ public:
         label_15->raise();
         label_12->raise();
         label_3->raise();
+        sl_brightness_1->raise();
         Admin_button = new QPushButton(page_2);
         Admin_button->setObjectName(QString::fromUtf8("Admin_button"));
         Admin_button->setGeometry(QRect(543, 10, 87, 31));
@@ -532,13 +529,6 @@ public:
         P2_HDMI_Button_1->setMinimumSize(QSize(81, 61));
         P2_HDMI_Button_1->setCursor(QCursor(Qt::PointingHandCursor));
         P2_HDMI_Button_1->setStyleSheet(QString::fromUtf8("background-color:rgb(46, 194, 126);"));
-        sl_brightness_2 = new QScrollBar(frame_5);
-        sl_brightness_2->setObjectName(QString::fromUtf8("sl_brightness_2"));
-        sl_brightness_2->setGeometry(QRect(106, 385, 160, 16));
-        sl_brightness_2->setMinimumSize(QSize(160, 0));
-        sl_brightness_2->setStyleSheet(QString::fromUtf8("color: white;\n"
-"background-color:rgba(53, 53, 53, 0.8);"));
-        sl_brightness_2->setOrientation(Qt::Horizontal);
         label_4 = new QLabel(frame_5);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(20, 377, 81, 31));
@@ -710,8 +700,11 @@ public:
         lbl_brightness_1_val_2->setObjectName(QString::fromUtf8("lbl_brightness_1_val_2"));
         lbl_brightness_1_val_2->setGeometry(QRect(292, 382, 41, 21));
         lbl_brightness_1_val_2->setStyleSheet(QString::fromUtf8("color: white;"));
+        sl_brightness_2 = new QSlider(frame_5);
+        sl_brightness_2->setObjectName(QString::fromUtf8("sl_brightness_2"));
+        sl_brightness_2->setGeometry(QRect(100, 390, 160, 16));
+        sl_brightness_2->setOrientation(Qt::Horizontal);
         line_2->raise();
-        sl_brightness_2->raise();
         label_4->raise();
         line_4->raise();
         P2_SDI_1->raise();
@@ -736,6 +729,7 @@ public:
         label_28->raise();
         label_2->raise();
         label_21->raise();
+        sl_brightness_2->raise();
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
@@ -1224,7 +1218,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
