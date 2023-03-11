@@ -33,29 +33,17 @@ public:
 private slots:
     void connected_1();
     void disconnected_1();
-
     void on_startButton_clicked();
-
     void on_Admin_button_clicked();
-
     void on_Sleep_Button_clicked();
-
-
     void on_pushButton_clicked();
-
     void on_pushButton_13_clicked();
-
     void on_password_lineEdit_cursorPositionChanged();
-
     void on_P1_On_Button_clicked();
-
     void on_P2_On_Button_clicked();
-
     void on_Admin_next_button_clicked();
-
 private:
     Ui::MainWindow *ui;
-
     QPushButton *Active_btn;
     QPushButton *Active_btn2;
     QTcpSocket *tcpSocket_1 = nullptr;
@@ -76,13 +64,11 @@ private:
     bool is_connected_2;
     bool powerState_1;
     bool powerState_2;
-
     // Functions
     void changeColorInActive(QPushButton *, QString);
-    void changeColorInActive2(QPushButton *, QLabel *);
     void changeBrightness(QScrollBar *, QLabel *, int);
     void BtnControl(QPushButton *, QPushButton *);
-    void command(int, QString);
+    void command(int, QString, QPushButton *);
     void onOff(int, QPushButton *);
     void connected_2();
     void disconnected_2();

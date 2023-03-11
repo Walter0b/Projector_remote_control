@@ -120,7 +120,7 @@ border: none;
      <string notr="true">background: #101010;</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
@@ -1722,9 +1722,9 @@ border-radius: 3px;</string>
       <widget class="QLabel" name="incorrect_password">
        <property name="geometry">
         <rect>
-         <x>280</x>
+         <x>300</x>
          <y>330</y>
-         <width>191</width>
+         <width>131</width>
          <height>20</height>
         </rect>
        </property>
