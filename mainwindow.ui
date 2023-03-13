@@ -19,9 +19,30 @@
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>
-  <property name="styleSheet">
-   <string notr="true">
-
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>741</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>741</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
 QMainWindow 
 #P1_Admin_HDMI_Button_1,
 #P1_Admin_HDMI_Button_2,
@@ -90,37 +111,10 @@ min-width:81;
 border-radius: 8%;
 border: none;
 }
-
-
 </string>
-  </property>
-  <property name="unifiedTitleAndToolBarOnMac">
-   <bool>false</bool>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>-10</x>
-      <y>0</y>
-      <width>741</width>
-      <height>511</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>741</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: #101010;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
@@ -256,8 +250,8 @@ right: 500px;</string>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>17</x>
-         <y>376</y>
+         <x>10</x>
+         <y>370</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -804,14 +798,15 @@ content: 'Status';</string>
       <widget class="QLabel" name="lbl_brightness_1_val_1">
        <property name="geometry">
         <rect>
-         <x>291</x>
-         <y>382</y>
+         <x>280</x>
+         <y>370</y>
          <width>41</width>
          <height>21</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;</string>
+        <string notr="true">color: white;
+margin-top: 10px;</string>
        </property>
        <property name="text">
         <string>0</string>
@@ -821,7 +816,7 @@ content: 'Status';</string>
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>390</y>
+         <y>380</y>
          <width>160</width>
          <height>16</height>
         </rect>
@@ -873,7 +868,7 @@ content: 'Status';</string>
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(53, 53, 53);
+       <string notr="true">background-color: rgb(28, 26, 26);
 border: none;
 border-radius: 3px;
 color: #fff;</string>
@@ -895,7 +890,7 @@ color: #fff;</string>
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(53, 53, 53);
+       <string notr="true">background-color: rgb(28, 26, 26);
 border: none;
 border-radius: 3px;
 color: #fff;</string>
@@ -980,7 +975,7 @@ border-bottom: 2px solid white;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>377</y>
+         <y>370</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -1526,14 +1521,15 @@ color: black;</string>
       <widget class="QLabel" name="lbl_brightness_1_val_2">
        <property name="geometry">
         <rect>
-         <x>292</x>
-         <y>382</y>
+         <x>280</x>
+         <y>370</y>
          <width>41</width>
          <height>21</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;</string>
+        <string notr="true">color: white;
+margin-top: 10px;</string>
        </property>
        <property name="text">
         <string>0</string>
@@ -1543,7 +1539,7 @@ color: black;</string>
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>390</y>
+         <y>380</y>
          <width>160</width>
          <height>16</height>
         </rect>
@@ -1705,7 +1701,7 @@ border-radius: 3px;</string>
         <rect>
          <x>300</x>
          <y>330</y>
-         <width>131</width>
+         <width>171</width>
          <height>20</height>
         </rect>
        </property>

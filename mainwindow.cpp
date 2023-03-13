@@ -376,8 +376,10 @@ void MainWindow::on_Admin_next_button_clicked()
         this->ui->stackedWidget->setCurrentIndex(3);
         this->ui->password_lineEdit->setText("");
     }
-    else
+    else{
         this->ui->incorrect_password->setText("Incorrect password!");
+        this->ui->password_lineEdit->setText("");
+    }
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -462,4 +464,3 @@ void MainWindow::on_P2_On_Button_clicked()
 {
     onOff(2, ui->P2_On_Button);
 }
-

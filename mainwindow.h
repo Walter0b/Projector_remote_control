@@ -42,6 +42,7 @@ private slots:
     void on_P1_On_Button_clicked();
     void on_P2_On_Button_clicked();
     void on_Admin_next_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     QPushButton *Active_btn;
