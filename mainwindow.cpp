@@ -263,6 +263,54 @@ void MainWindow::onOff(int prt, QPushButton *button)
         }
     }
 }
+/*method to send projector command for a clicked button*/
+void MainWindow::command(int btn_id, QString prt,QPushButton *btn)
+{
+    switch (btn_id)
+    {
+    case 1:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA1 0xA9";
+        break;
+    case 2:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA2 0xAA";
+        break;
+    case 3:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xBF 0xC7";
+        break;
+    case 4:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA6 0xAE";
+        break;
+    case 5:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA7 0xAF";
+        break;
+    case 6:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC4 0xCC";
+        break;
+    case 7:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC5 0xCD";
+        break;
+    case 8:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC6 0xCE";
+        break;
+    case 9:
+        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC7 0xCF";
+    default:
+        break;
+    }
+    if(prt == "P1" && is_connected_1 && tcpSocket_1->isOpen() ){
+
+        changeColorInActive(btn,"P1");
+        // send the command
+        byteArray = active_commandData.toUtf8();
+        socketStream_1 << byteArray;
+    }else if(is_connected_2 && tcpSocket_2->isOpen()){
+
+            changeColorInActive(btn,"P2");
+            //  send the command
+            byteArray = active_commandData.toUtf8();
+            socketStream_2 << byteArray;
+        }
+}
 
 void MainWindow::connected_1()
 {
@@ -382,7 +430,7 @@ void MainWindow::on_Admin_next_button_clicked()
     }
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_SaveChangesButton_clicked()
 {
 
     this->ui->stackedWidget->setCurrentIndex(1);
@@ -397,70 +445,15 @@ void MainWindow::on_pushButton_13_clicked()
     this->ui->stackedWidget->setCurrentIndex(1);
 }
 
-/*method to send projector command for a clicked button*/
-void MainWindow::command(int btn_id, QString prt,QPushButton *btn)
-{
-    switch (btn_id)
-    {
-    case 1:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA1 0xA9";
-        break;
-    case 2:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA2 0xAA";
-        break;
-    case 3:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xBF 0xC7";
-        break;
-    case 4:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA6 0xAE";
-        break;
-    case 5:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xA7 0xAF";
-        break;
-    case 6:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC4 0xCC";
-        break;
-    case 7:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC5 0xCD";
-        break;
-    case 8:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC6 0xCE";
-        break;
-    case 9:
-        this->active_commandData = "0x02 0x03 0x00 0x00 0x02 0x01 0xC7 0xCF";
-    default:
-        break;
-    }
-    if(prt == "P1" && is_connected_1 && tcpSocket_1->isOpen() ){
-        
-        changeColorInActive(btn,"P1");
-        // On envoie la commande
-        byteArray = active_commandData.toUtf8();
-        socketStream_1 << byteArray;
-    }else if(is_connected_2 && tcpSocket_2->isOpen()){
 
-            changeColorInActive(btn,"P2");
-            // On envoie la commande
-            byteArray = active_commandData.toUtf8();
-            socketStream_2 << byteArray;
-        }
-}
 
 void MainWindow::on_password_lineEdit_cursorPositionChanged()
 {
 
     if (this->ui->password_lineEdit->text().size() > 0)
         this->ui->password_lineEdit->setStyleSheet(this->custom_style->border);
-    else
+    else{
         this->ui->password_lineEdit->setStyleSheet(this->custom_style->rm_border);
-    this->ui->incorrect_password->setText("");
-}
-
-void MainWindow::on_P1_On_Button_clicked()
-{
-    onOff(1, ui->P1_On_Button);
-}
-void MainWindow::on_P2_On_Button_clicked()
-{
-    onOff(2, ui->P2_On_Button);
+        this->ui->incorrect_password->setText("");
+    }
 }

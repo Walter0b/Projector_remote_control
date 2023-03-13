@@ -33,14 +33,14 @@ public:
 private slots:
     void connected_1();
     void disconnected_1();
-    void on_startButton_clicked();
     void on_Admin_button_clicked();
     void on_Sleep_Button_clicked();
-    void on_pushButton_clicked();
+    void on_SaveChangesButton_clicked();
     void on_pushButton_13_clicked();
     void on_password_lineEdit_cursorPositionChanged();
     void on_P1_On_Button_clicked();
     void on_P2_On_Button_clicked();
+    void on_startButton_clicked();
     void on_Admin_next_button_clicked();
 
 private:

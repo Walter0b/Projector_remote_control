@@ -851,9 +851,9 @@ margin-top: 10px;</string>
       <zorder>label_18</zorder>
       <zorder>label_19</zorder>
       <zorder>label_15</zorder>
-      <zorder>label_12</zorder>
       <zorder>label_3</zorder>
       <zorder>sl_brightness_1</zorder>
+      <zorder>label_12</zorder>
      </widget>
      <widget class="QPushButton" name="Admin_button">
       <property name="geometry">
@@ -2943,7 +2943,7 @@ color: black;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="SaveChangesButton">
        <property name="geometry">
         <rect>
          <x>5</x>
